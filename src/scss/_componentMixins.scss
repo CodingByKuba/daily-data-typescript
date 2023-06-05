@@ -1,0 +1,23 @@
+@mixin all {
+  box-sizing: border-box;
+}
+
+@mixin root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+  color: $mainTextColor;
+  background-color: $appBackground;
+  font-size: $mainFontSize;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+@mixin body {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  @include flexDisplay($justify: flex-start);
+}
