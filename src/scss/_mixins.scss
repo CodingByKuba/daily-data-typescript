@@ -10,3 +10,21 @@
   justify-content: $justify;
   gap: $gap;
 }
+
+@mixin size($width: auto, $height: auto, $max-width: 100%, $max-height: 100vh) {
+  width: $width;
+  height: $height;
+  max-width: $max-width;
+  max-height: $max-height;
+}
+
+@mixin inputAndButton(
+  $padding: 0.5rem,
+  $border-radius: 0.5rem,
+  $font-size: 1.2rem
+) {
+  padding: $padding;
+  border-radius: $border-radius;
+  font-size: $font-size;
+  border: 1px solid black;
+}

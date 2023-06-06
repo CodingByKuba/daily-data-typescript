@@ -1,4 +1,5 @@
 @import "./scss/variables";
+@import "./scss/animations";
 @import "./scss/mixins";
 @import "./scss/componentMixins";
 
@@ -12,4 +13,31 @@
 
 body {
   @include body();
+}
+
+input,
+button {
+  @include inputAndButton();
+}
+
+#login {
+  @include login();
+}
+
+#loader {
+  @include loader();
+}
+
+#info-box {
+  @include infoBox();
+}
+
+#info-box.info-success {
+  @include infoBoxSuccess();
+}
+#info-box.info-error {
+  @include infoBoxError();
+}
+#info-box.info-warning {
+  @include infoBoxWarning();
 }

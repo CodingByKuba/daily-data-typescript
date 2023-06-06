@@ -1,3 +1,11 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -19,9 +27,84 @@ body {
   margin: 0;
   width: 100%;
   height: 100vh;
+  max-width: 100%;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: 0;
+}
+
+input,
+button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  border: 1px solid black;
+}
+
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+}
+#login header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+}
+#login header img {
+  max-width: 90%;
+}
+#login header h1 {
+  visibility: hidden;
+}
+#login #log-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  max-width: -moz-min-content;
+  max-width: min-content;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+#loader {
+  width: 2rem;
+  height: 2rem;
+  max-width: 40px;
+  max-height: 40px;
+  border-left: 0.2rem solid white;
+  border-radius: 50%;
+  animation: spin 0.4s ease-in-out infinite;
+}
+
+#info-box {
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  margin: 0.2rem;
+}
+
+#info-box.info-success {
+  background-color: rgb(0, 34, 0);
+  color: rgb(106, 218, 106);
+}
+
+#info-box.info-error {
+  background-color: rgb(54, 0, 0);
+  color: rgb(218, 106, 106);
+}
+
+#info-box.info-warning {
+  background-color: rgb(54, 50, 0);
+  color: rgb(216, 218, 106);
 }/*# sourceMappingURL=index.css.map */

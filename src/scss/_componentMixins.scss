@@ -17,7 +17,58 @@
 
 @mixin body {
   margin: 0;
-  width: 100%;
-  height: 100vh;
+  @include size($width: 100%, $height: 100vh);
   @include flexDisplay($justify: flex-start);
+}
+
+@mixin login {
+  @include flexDisplay($justify: flex-start);
+  header {
+    @include flexDisplay($justify: flex-start);
+    img {
+      max-width: 90%;
+    }
+    h1 {
+      visibility: hidden;
+    }
+  }
+  #log-form {
+    @include flexDisplay($gap: 0.5rem);
+    background: rgba(0, 0, 0, 0.5);
+    max-width: min-content;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+}
+
+@mixin loader {
+  @include size(
+    $width: 2rem,
+    $height: 2rem,
+    $max-width: 40px,
+    $max-height: 40px
+  );
+  border-left: 0.2rem solid white;
+  border-radius: 50%;
+  animation: spin 0.4s ease-in-out infinite;
+}
+
+@mixin infoBox {
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  margin: 0.2rem;
+}
+
+@mixin infoBoxSuccess {
+  background-color: $infoSuccessBackground;
+  color: $infoSuccessColor;
+}
+@mixin infoBoxError {
+  background-color: $infoErrorBackground;
+  color: $infoErrorColor;
+}
+@mixin infoBoxWarning {
+  background-color: $infoWarningBackground;
+  color: $infoWarningColor;
 }
