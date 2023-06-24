@@ -1,11 +1,14 @@
 import { FetchContextProvider } from "./context/FetchContext";
+import { UserContextProvider } from "./context/UserContext";
 import Login from "./pages/Login";
 
 const App = () => {
   return (
-    <FetchContextProvider>
-      <Login />
-    </FetchContextProvider>
+    <UserContextProvider>
+      <FetchContextProvider>
+        <Login />
+      </FetchContextProvider>
+    </UserContextProvider>
   );
 };
 

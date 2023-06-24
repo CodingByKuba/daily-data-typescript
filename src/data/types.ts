@@ -10,8 +10,22 @@ export type Config = {
   AX_ROUTE_NOTES: "/notes";
 };
 
+export type ReducerActionType = {
+  type: number;
+  payload?: any;
+};
+
 export type InfoBoxType = {
   message?: string;
   type: "success" | "error" | "info";
   children?: React.ReactNode;
+};
+
+export type UserInitialStateType = {
+  username: string;
+  token: string;
+  contacts: any[];
+  notes: any[];
+  events: any[];
+  weatherCity: null | number;
 };
