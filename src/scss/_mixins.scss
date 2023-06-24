@@ -28,3 +28,13 @@
   font-size: $font-size;
   border: 1px solid black;
 }
+
+@mixin button {
+  cursor: pointer;
+  transition: transform 0.1s linear, opacity 0.1s linear;
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+}

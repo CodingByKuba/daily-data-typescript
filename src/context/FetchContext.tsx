@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import config from "../data/config";
 
 type FetchContextType = {
@@ -31,6 +31,9 @@ export const FetchContextProvider: React.FC<FetchProviderType> = ({
   children,
 }) => {
   const [isPending, setIsPending] = useState(false);
+  const controller = new AbortController();
+
+  useEffect(() => () => controller.abort(), []);
 
   const fetchCallback = (data: FetchCallbackArguments) => {
     if (isPending) return;
@@ -40,6 +43,7 @@ export const FetchContextProvider: React.FC<FetchProviderType> = ({
       method: data.method || "POST",
       timeout: data.timeout || 5000,
       data: data.payload || {},
+      signal: controller.signal,
     })
       .then((response) => {
         data.successCallback(response);

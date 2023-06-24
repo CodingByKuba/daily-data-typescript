@@ -10,10 +10,8 @@ export type Config = {
   AX_ROUTE_NOTES: "/notes";
 };
 
-export type InfoBoxMode = "success" | "error" | "info";
-
 export type InfoBoxType = {
   message?: string;
-  type: InfoBoxMode;
+  type: "success" | "error" | "info";
   children?: React.ReactNode;
 };

@@ -20,6 +20,10 @@ button {
   @include inputAndButton();
 }
 
+button {
+  @include button();
+}
+
 #login {
   @include login();
 }
