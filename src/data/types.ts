@@ -15,9 +15,11 @@ export type ReducerActionType = {
   payload?: any;
 };
 
+export type InfoBoxMode = "success" | "error" | "info";
+
 export type InfoBoxType = {
   message?: string;
-  type: "success" | "error" | "info";
+  type: InfoBoxMode;
   children?: React.ReactNode;
 };
 

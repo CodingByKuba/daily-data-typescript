@@ -1,5 +1,4 @@
 import { createContext, useContext, useReducer } from "react";
-import { UserInitialStateType } from "../data/types";
 import userReducer from "../reducers/userReducer";
 import { userInitialState } from "../data/initialState";
 
@@ -7,7 +6,7 @@ type UserProviderType = {
   children?: React.ReactNode;
 };
 
-const defaultValue: UserInitialStateType | unknown = userInitialState;
+const defaultValue: any = userInitialState;
 
 const UserContext = createContext(defaultValue);
 

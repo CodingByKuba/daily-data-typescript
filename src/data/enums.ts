@@ -1,4 +1,4 @@
 export enum ReducerActions {
-  SET_USERNAME,
-  SET_TOKEN,
+  SET_DATA,
+  ON_LOGOUT,
 }

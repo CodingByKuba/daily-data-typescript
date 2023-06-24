@@ -2,10 +2,12 @@ import { useState } from "react";
 import { useFetchContext } from "../context/FetchContext";
 
 import config from "../data/config";
-import { InfoBoxMode } from "../data/types";
 
 import Loader from "./Loader";
 import InfoBox from "./InfoBox";
+import { useUserContext } from "../context/UserContext";
+import { InfoBoxMode } from "../data/types";
+import { ReducerActions } from "../data/enums";
 
 const LoginRegisterForm = () => {
   const [isLogin, setIsLogin] = useState<boolean>(true);
@@ -14,6 +16,8 @@ const LoginRegisterForm = () => {
 
   const [infoBoxMessage, setInfoBoxMessage] = useState<string>("");
   const [infoBoxType, setInfoBoxType] = useState<InfoBoxMode>("success");
+
+  const { userDispatch } = useUserContext();
 
   const { isPending, fetchCallback } = useFetchContext();
 
@@ -39,6 +43,13 @@ const LoginRegisterForm = () => {
         if (response.data.token) {
           setInfoBoxMessage("Zalogowano poprawnie");
           setInfoBoxType("success");
+          userDispatch({
+            type: ReducerActions.SET_DATA,
+            payload: {
+              username: login,
+              token: response.data.token,
+            },
+          });
           return;
         }
       },
