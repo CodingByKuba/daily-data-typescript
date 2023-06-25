@@ -31,3 +31,12 @@ export type UserInitialStateType = {
   events: any[];
   weatherCity: null | number;
 };
+
+export type UserEventType = {
+  id: string;
+  comment: string;
+  time: Date;
+  title: string;
+  createdAt: Date;
+  updatedAt: Date;
+};

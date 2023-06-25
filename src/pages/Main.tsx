@@ -1,4 +1,6 @@
+import DataLoader from "../components/DataLoader";
 import { useUserContext } from "../context/UserContext";
+import Board from "./Board";
 import Login from "./Login";
 
 const Main = () => {
@@ -6,7 +8,11 @@ const Main = () => {
 
   if (!userState.username && !userState.token) return <Login />;
 
-  return <div>Zalogowany</div>;
+  return (
+    <DataLoader>
+      <Board />
+    </DataLoader>
+  );
 };
 
 export default Main;

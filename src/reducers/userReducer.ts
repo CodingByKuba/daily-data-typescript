@@ -10,12 +10,12 @@ const userReducer = (
     case ReducerActions.SET_DATA:
       return {
         ...state,
-        username: action.payload.username || "",
-        token: action.payload.token || "",
-        contacts: action.payload.contacts || [],
-        notes: action.payload.notes || [],
-        events: action.payload.events || [],
-        weatherCity: action.payload.weatherCity || null,
+        username: action.payload.username || state.username,
+        token: action.payload.token || state.token,
+        contacts: action.payload.contacts || state.contacts,
+        notes: action.payload.notes || state.notes,
+        events: action.payload.events || state.events,
+        weatherCity: action.payload.weatherCity || state.weatherCity,
       };
     case ReducerActions.ON_LOGOUT:
       return userInitialState;
