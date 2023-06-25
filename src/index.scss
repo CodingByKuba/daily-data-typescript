@@ -45,3 +45,7 @@ button {
 #info-box.info-warning {
   @include infoBoxWarning();
 }
+
+.center-flex {
+  @include centerFlex();
+}

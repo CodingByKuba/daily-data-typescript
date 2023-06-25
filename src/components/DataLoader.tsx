@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useFetchContext } from "../context/FetchContext";
 import Loader from "./Loader";
 import config from "../data/config";
 import { useUserContext } from "../context/UserContext";
 import { ReducerActions } from "../data/enums";
+import InfoBox from "./InfoBox";
 
 type PropsType = {
   children?: React.ReactNode;
@@ -12,6 +13,7 @@ type PropsType = {
 const DataLoader = ({ children }: PropsType) => {
   const { isPending, fetchCallback } = useFetchContext();
   const { userState, userDispatch } = useUserContext();
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     fetchCallback({
@@ -23,7 +25,7 @@ const DataLoader = ({ children }: PropsType) => {
       },
       successCallback: (response: any) => {
         if (response.data.error) {
-          alert(response.data.error);
+          setError(response.data.error);
           return;
         }
         if (response.data.username === userState.username) {
@@ -40,13 +42,30 @@ const DataLoader = ({ children }: PropsType) => {
         }
       },
       errorCallback: (error: any) => {
-        alert(error.message);
+        setError(error.message);
         return;
       },
     });
   }, []);
 
-  return isPending ? <Loader /> : <>{children}</>;
+  return isPending || error ? (
+    <div className="center-flex">
+      {error ? (
+        <>
+          <InfoBox type="error" message={error} />
+          <button
+            onClick={() => userDispatch({ type: ReducerActions.ON_LOGOUT })}
+          >
+            Wyloguj
+          </button>
+        </>
+      ) : (
+        <Loader />
+      )}
+    </div>
+  ) : (
+    <>{children}</>
+  );
 };
 
 export default DataLoader;
