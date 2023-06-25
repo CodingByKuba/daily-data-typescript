@@ -1,4 +1,5 @@
 import DataLoader from "../components/DataLoader";
+import ServerRefresher from "../components/ServerRefresher";
 import { useUserContext } from "../context/UserContext";
 import Board from "./Board";
 import Login from "./Login";
@@ -9,9 +10,11 @@ const Main = () => {
   if (!userState.username && !userState.token) return <Login />;
 
   return (
-    <DataLoader>
-      <Board />
-    </DataLoader>
+    <ServerRefresher>
+      <DataLoader>
+        <Board />
+      </DataLoader>
+    </ServerRefresher>
   );
 };
 
