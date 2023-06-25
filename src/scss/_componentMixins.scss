@@ -15,6 +15,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
+@mixin rootDiv {
+  width: 100%;
+}
+
 @mixin body {
   margin: 0;
   @include size($width: 100%, $height: 100vh);
@@ -71,4 +75,27 @@
 @mixin infoBoxWarning {
   background-color: $infoWarningBackground;
   color: $infoWarningColor;
+}
+
+@mixin topNavBar {
+  position: fixed;
+  height: $topNavBarHeight;
+  width: 100%;
+  background-color: $topNavBarBackground;
+  @include flexDisplay($direction: row);
+  & > * {
+    @include flexDisplay();
+    font-size: 1.6rem;
+  }
+  .title {
+    flex: 1;
+  }
+}
+
+@mixin main {
+  padding-top: $topNavBarHeight;
+}
+
+@mixin board {
+  @include flexDisplay($justify: flex-start);
 }

@@ -11,6 +11,10 @@
   @include root();
 }
 
+#root {
+  @include rootDiv();
+}
+
 body {
   @include body();
 }
@@ -48,4 +52,16 @@ button {
 
 .center-flex {
   @include centerFlex();
+}
+
+#top-nav-bar {
+  @include topNavBar();
+}
+
+#board {
+  @include board();
+}
+
+main {
+  @include main();
 }

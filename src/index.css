@@ -23,6 +23,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
+#root {
+  width: 100%;
+}
+
 body {
   margin: 0;
   width: 100%;
@@ -128,4 +132,39 @@ button:hover, button:focus {
   align-items: center;
   justify-content: center;
   gap: 0;
+}
+
+#top-nav-bar {
+  position: fixed;
+  height: 3rem;
+  width: 100%;
+  background-color: rgb(68, 68, 68);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+#top-nav-bar > * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  font-size: 1.6rem;
+}
+#top-nav-bar .title {
+  flex: 1;
+}
+
+#board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+main {
+  padding-top: 3rem;
 }/*# sourceMappingURL=index.css.map */

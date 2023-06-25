@@ -10,6 +10,7 @@ const userReducer = (
     case ReducerActions.SET_DATA:
       return {
         ...state,
+        dataLoaded: action.payload.dataLoaded || state.dataLoaded,
         username: action.payload.username || state.username,
         token: action.payload.token || state.token,
         contacts: action.payload.contacts || state.contacts,

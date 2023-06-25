@@ -32,6 +32,7 @@ const DataLoader = ({ children }: PropsType) => {
           userDispatch({
             type: ReducerActions.SET_DATA,
             payload: {
+              dataLoaded: true,
               contacts: response.data.contacts,
               notes: response.data.notes,
               events: response.data.events,
@@ -48,7 +49,7 @@ const DataLoader = ({ children }: PropsType) => {
     });
   }, []);
 
-  return isPending || error ? (
+  return !userState.dataLoaded || isPending || error ? (
     <div className="center-flex">
       {error ? (
         <>
