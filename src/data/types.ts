@@ -25,6 +25,7 @@ export type InfoBoxType = {
 
 export type UserInitialStateType = {
   dataLoaded: boolean;
+  navigationOpened: boolean;
   username: string;
   token: string;
   contacts: any[];

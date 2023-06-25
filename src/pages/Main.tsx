@@ -5,6 +5,7 @@ import TopNavBar from "../components/TopNavBar";
 import { useUserContext } from "../context/UserContext";
 import Board from "./Board";
 import Login from "./Login";
+import NavigationDrawer from "../components/NavigationDrawer";
 
 const Main = () => {
   const { userState } = useUserContext();
@@ -25,6 +26,7 @@ const Main = () => {
         <main>
           <RouterProvider router={router} />
         </main>
+        <NavigationDrawer />
       </DataLoader>
     </ServerRefresher>
   );
