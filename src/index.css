@@ -179,9 +179,9 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: aquamarine;
+  background-color: rgb(116, 116, 116);
   height: 100vh;
-  width: 200px;
+  width: 250px;
   padding-top: 0.3rem;
   transition: transform 0.2s ease-out;
 }
@@ -190,4 +190,23 @@ nav.false {
 }
 nav.true {
   transform: translateX(0px);
+}
+nav a {
+  display: block;
+  background-color: rgb(37, 37, 37);
+  color: rgb(190, 190, 190);
+  margin-top: 0.5rem;
+  padding: 0.3rem;
+  width: 95%;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+}
+nav a.active {
+  background-color: rgb(190, 190, 190);
+  color: rgb(37, 37, 37);
 }/*# sourceMappingURL=index.css.map */

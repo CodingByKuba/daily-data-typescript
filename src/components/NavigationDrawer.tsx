@@ -18,7 +18,7 @@ const NavigationDrawer = () => {
   return (
     <nav className={"nav " + userState.navigationOpened.toString()}>
       <button onClick={() => closeAction()}>x</button>
-      <hr />
+      Menu:
       <NavLink to="/" onClick={() => closeAction()}>
         Główna
       </NavLink>

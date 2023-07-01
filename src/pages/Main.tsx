@@ -25,6 +25,7 @@ const Main = () => {
             <Routes>
               <Route path="/" element={<Board />} />
               <Route path="/notes" element={<Notes />} />
+              <Route path="/notes/:id" element={<Notes />} />
               <Route path="/contacts" element={<Contacts />} />
               <Route path="/events" element={<Events />} />
               <Route path="/debt" element={<Debt />} />
