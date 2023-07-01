@@ -171,12 +171,18 @@ main {
 }
 
 nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
   position: fixed;
   top: 0;
   left: 0;
   background-color: aquamarine;
   height: 100vh;
   width: 200px;
+  padding-top: 0.3rem;
   transition: transform 0.2s ease-out;
 }
 nav.false {

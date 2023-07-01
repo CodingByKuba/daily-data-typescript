@@ -8,6 +8,7 @@ export type Config = {
   AX_ROUTE_LOGIN: "/login";
   AX_ROUTE_LOGOUT: "/logout";
   AX_ROUTE_NOTES: "/notes";
+  LOCATION_NAMES: any;
 };
 
 export type ReducerActionType = {

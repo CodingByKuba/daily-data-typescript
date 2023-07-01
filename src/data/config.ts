@@ -10,6 +10,13 @@ const config: Config = {
   AX_ROUTE_LOGIN: "/login",
   AX_ROUTE_LOGOUT: "/logout",
   AX_ROUTE_NOTES: "/notes",
+  LOCATION_NAMES: {
+    "/": "Strona główna",
+    "/notes": "Notatki",
+    "/contacts": "Kontakty",
+    "/events": "Wydarzenia",
+    "/debt": "Zadłużenia",
+  },
 };
 
 export default config;

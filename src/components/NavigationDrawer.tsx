@@ -1,21 +1,39 @@
+import { useCallback } from "react";
+import { NavLink } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 import { ReducerActions } from "../data/enums";
 
 const NavigationDrawer = () => {
   const { userState, userDispatch } = useUserContext();
+
+  const closeAction = useCallback(
+    () =>
+      userDispatch({
+        type: ReducerActions.SET_DATA,
+        payload: { navigationOpened: false },
+      }),
+    [userState.navigationOpened]
+  );
+
   return (
     <nav className={"nav " + userState.navigationOpened.toString()}>
-      <button
-        onClick={() =>
-          userDispatch({
-            type: ReducerActions.SET_DATA,
-            payload: { navigationOpened: false },
-          })
-        }
-      >
-        x
-      </button>
+      <button onClick={() => closeAction()}>x</button>
       <hr />
+      <NavLink to="/" onClick={() => closeAction()}>
+        Główna
+      </NavLink>
+      <NavLink to="notes" onClick={() => closeAction()}>
+        Notatki
+      </NavLink>
+      <NavLink to="contacts" onClick={() => closeAction()}>
+        Kontakty
+      </NavLink>
+      <NavLink to="events" onClick={() => closeAction()}>
+        Wydarzenia
+      </NavLink>
+      <NavLink to="debt" onClick={() => closeAction()}>
+        Zadłużenia
+      </NavLink>
     </nav>
   );
 };
