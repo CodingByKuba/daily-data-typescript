@@ -96,8 +96,9 @@ const LoginRegisterForm = () => {
         <>
           <button type="submit">{isLogin ? "Zaloguj" : "Zarejestruj"}</button>
           <a
-            href="javascript:void(0);"
-            onClick={() => {
+            href="/"
+            onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+              e.preventDefault();
               setIsLogin((prevIsLogin: boolean) => !prevIsLogin);
               setLogin("");
               setPassword("");
