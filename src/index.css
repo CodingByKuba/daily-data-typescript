@@ -152,6 +152,7 @@ button:hover, button:focus {
   justify-content: center;
   gap: 0;
   font-size: 1.6rem;
+  padding: 0.3rem;
 }
 #top-nav-bar .title {
   flex: 1;
@@ -167,4 +168,20 @@ button:hover, button:focus {
 
 main {
   padding-top: 3rem;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: aquamarine;
+  height: 100vh;
+  width: 200px;
+  transition: transform 0.2s ease-out;
+}
+nav.false {
+  transform: translateX(-300px);
+}
+nav.true {
+  transform: translateX(0px);
 }/*# sourceMappingURL=index.css.map */

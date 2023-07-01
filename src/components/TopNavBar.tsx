@@ -6,7 +6,16 @@ const TopNavBar = () => {
   return (
     <header id="top-nav-bar">
       <div className="menu">
-        <button>Menu</button>
+        <button
+          onClick={() =>
+            userDispatch({
+              type: ReducerActions.SET_DATA,
+              payload: { navigationOpened: true },
+            })
+          }
+        >
+          Menu
+        </button>
       </div>
       <div className="title">title</div>
       <div className="logout">

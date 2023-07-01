@@ -11,8 +11,7 @@ const userReducer = (
       return {
         ...state,
         dataLoaded: action.payload.dataLoaded || state.dataLoaded,
-        navigationOpened:
-          action.payload.navigationOpened || state.navigationOpened,
+        navigationOpened: action.payload.navigationOpened || false,
         username: action.payload.username || state.username,
         token: action.payload.token || state.token,
         contacts: action.payload.contacts || state.contacts,
