@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useFetchContext } from "../context/FetchContext";
 
 import config from "../data/config";
@@ -21,7 +21,7 @@ const LoginRegisterForm = () => {
 
   const { isPending, fetchCallback } = useFetchContext();
 
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     setInfoBoxMessage("");
     fetchCallback({
       url: isLogin ? config.AX_ROUTE_LOGIN : config.AX_ROUTE_USERS,
@@ -59,7 +59,7 @@ const LoginRegisterForm = () => {
         return;
       },
     });
-  };
+  }, [login, password]);
 
   return (
     <form

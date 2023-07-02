@@ -16,6 +16,12 @@ const config: Config = {
     "/contacts": "Kontakty",
     "/events": "Wydarzenia",
     "/debt": "Zadłużenia",
+    "/settings": "Ustawienia",
+    "/add": "Dodaj",
+    "/add/note": "Dodaj notatkę",
+    "/add/contact": "Dodaj kontakt",
+    "/add/event": "Dodaj wydarzenie",
+    "/add/debt": "Dodaj zadłużenie",
   },
 };
 

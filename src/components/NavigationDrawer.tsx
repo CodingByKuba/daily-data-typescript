@@ -34,6 +34,13 @@ const NavigationDrawer = () => {
       <NavLink to="debt" onClick={() => closeAction()}>
         Zadłużenia
       </NavLink>
+      <hr />
+      <NavLink to="add" onClick={() => closeAction()}>
+        Dodaj
+      </NavLink>
+      <NavLink to="settings" onClick={() => closeAction()}>
+        Ustawienia
+      </NavLink>
     </nav>
   );
 };

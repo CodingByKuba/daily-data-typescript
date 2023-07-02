@@ -1,5 +1,9 @@
+import { useParams } from "react-router-dom";
+
 const Contacts = () => {
-  return <div>Kontakty</div>;
+  const params = useParams();
+
+  return <div>{params.id ? "Kontakt " + params.id : "Kontakty"}</div>;
 };
 
 export default Contacts;
