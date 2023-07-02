@@ -95,9 +95,6 @@
 
 @mixin main {
   padding-top: $topNavBarHeight;
-}
-
-@mixin board {
   @include flexDisplay($justify: flex-start);
 }
 

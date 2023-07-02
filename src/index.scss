@@ -46,7 +46,7 @@ button {
 #info-box.info-error {
   @include infoBoxError();
 }
-#info-box.info-warning {
+#info-box.info-info {
   @include infoBoxWarning();
 }
 
@@ -56,10 +56,6 @@ button {
 
 #top-nav-bar {
   @include topNavBar();
-}
-
-#board {
-  @include board();
 }
 
 main {

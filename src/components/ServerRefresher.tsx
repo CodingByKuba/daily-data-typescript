@@ -17,7 +17,9 @@ const ServerRefresher = ({ children }: PropsType) => {
         method: "GET",
         timeout: 5000,
         signal: controller.signal,
-      });
+      })
+        .then(() => null)
+        .catch(() => null);
     }, 10000);
 
     return () => {

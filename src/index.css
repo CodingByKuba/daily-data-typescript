@@ -117,7 +117,7 @@ button:hover, button:focus {
   color: rgb(218, 106, 106);
 }
 
-#info-box.info-warning {
+#info-box.info-info {
   background-color: rgb(54, 50, 0);
   color: rgb(216, 218, 106);
 }
@@ -158,16 +158,13 @@ button:hover, button:focus {
   flex: 1;
 }
 
-#board {
+main {
+  padding-top: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: 0;
-}
-
-main {
-  padding-top: 3rem;
 }
 
 nav {

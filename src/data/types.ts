@@ -71,3 +71,11 @@ export type NavigationLinkType = {
   url: string;
   name: string;
 };
+
+export type NoteType = {
+  id: string;
+  title: string;
+  content: string;
+  createdAt: Date;
+  updatedAt?: Date;
+};
