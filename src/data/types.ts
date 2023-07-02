@@ -9,11 +9,34 @@ export type Config = {
   AX_ROUTE_LOGOUT: "/logout";
   AX_ROUTE_NOTES: "/notes";
   LOCATION_NAMES: any;
+  NAVIGATION_LINKS: NavigationLinkType[];
 };
 
 export type ReducerActionType = {
   type: number;
   payload?: any;
+};
+
+export type FetchContextType = {
+  isPending: any;
+  fetchCallback: (arg?: any) => void;
+};
+
+export type FetchProviderType = {
+  children?: React.ReactNode;
+};
+
+export type FetchCallbackArguments = {
+  url: string;
+  method: string;
+  timeout: number;
+  payload: any;
+  successCallback: (arg: any) => void;
+  errorCallback: (arg: any) => void;
+};
+
+export type UserProviderType = {
+  children?: React.ReactNode;
 };
 
 export type InfoBoxMode = "success" | "error" | "info";
@@ -42,4 +65,9 @@ export type UserEventType = {
   title: string;
   createdAt: Date;
   updatedAt: Date;
+};
+
+export type NavigationLinkType = {
+  url: string;
+  name: string;
 };

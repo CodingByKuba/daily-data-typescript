@@ -1,28 +1,15 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 import config from "../data/config";
-
-type FetchContextType = {
-  isPending: any;
-  fetchCallback: (arg?: any) => void;
-};
-
-type FetchProviderType = {
-  children?: React.ReactNode;
-};
+import {
+  FetchContextType,
+  FetchProviderType,
+  FetchCallbackArguments,
+} from "../data/types";
 
 const defaultValue: FetchContextType = {
   isPending: false,
   fetchCallback: () => {},
-};
-
-type FetchCallbackArguments = {
-  url: string;
-  method: string;
-  timeout: number;
-  payload: any;
-  successCallback: (arg: any) => void;
-  errorCallback: (arg: any) => void;
 };
 
 const FetchContext = createContext(defaultValue);

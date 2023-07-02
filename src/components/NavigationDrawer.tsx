@@ -2,6 +2,8 @@ import { useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 import { ReducerActions } from "../data/enums";
+import config from "../data/config";
+import { NavigationLinkType } from "../data/types";
 
 const NavigationDrawer = () => {
   const { userState, userDispatch } = useUserContext();
@@ -17,30 +19,13 @@ const NavigationDrawer = () => {
 
   return (
     <nav className={"nav " + userState.navigationOpened.toString()}>
-      <button onClick={() => closeAction()}>x</button>
+      <button onClick={() => closeAction()}>&nbsp;x&nbsp;</button>
       Menu:
-      <NavLink to="/" onClick={() => closeAction()}>
-        Główna
-      </NavLink>
-      <NavLink to="notes" onClick={() => closeAction()}>
-        Notatki
-      </NavLink>
-      <NavLink to="contacts" onClick={() => closeAction()}>
-        Kontakty
-      </NavLink>
-      <NavLink to="events" onClick={() => closeAction()}>
-        Wydarzenia
-      </NavLink>
-      <NavLink to="debt" onClick={() => closeAction()}>
-        Zadłużenia
-      </NavLink>
-      <hr />
-      <NavLink to="add" onClick={() => closeAction()}>
-        Dodaj
-      </NavLink>
-      <NavLink to="settings" onClick={() => closeAction()}>
-        Ustawienia
-      </NavLink>
+      {config.NAVIGATION_LINKS.map((el: NavigationLinkType, index: number) => (
+        <NavLink key={index} to={el.url} onClick={() => closeAction()}>
+          {el.name}
+        </NavLink>
+      ))}
     </nav>
   );
 };

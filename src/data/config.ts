@@ -23,6 +23,15 @@ const config: Config = {
     "/add/event": "Dodaj wydarzenie",
     "/add/debt": "Dodaj zadłużenie",
   },
+  NAVIGATION_LINKS: [
+    { url: "/", name: "Główna" },
+    { url: "notes", name: "Notatki" },
+    { url: "contacts", name: "Kontakty" },
+    { url: "events", name: "Wydarzenia" },
+    { url: "debt", name: "Zadłużenia" },
+    { url: "add", name: "Dodaj" },
+    { url: "settings", name: "Ustawienia" },
+  ],
 };
 
 export default config;
