@@ -11,7 +11,7 @@ type PropsType = {
 };
 
 const DataLoader = ({ children }: PropsType) => {
-  const { isPending, fetchCallback } = useFetchContext();
+  const { fetchCallback } = useFetchContext();
   const { userState, userDispatch } = useUserContext();
   const [error, setError] = useState<string>("");
 
@@ -49,7 +49,7 @@ const DataLoader = ({ children }: PropsType) => {
     });
   }, []);
 
-  return !userState.dataLoaded || isPending || error ? (
+  return !userState.dataLoaded || error ? (
     <div className="center-flex">
       {error ? (
         <>

@@ -78,6 +78,7 @@
 }
 
 @mixin topNavBar {
+  z-index: 998;
   position: fixed;
   height: $topNavBarHeight;
   width: 100%;
@@ -100,6 +101,7 @@
 
 @mixin navDrawer {
   @include flexDisplay($justify: flex-start);
+  z-index: 999;
   position: fixed;
   top: 0;
   left: 0;
