@@ -77,5 +77,5 @@ export type NoteType = {
   title: string;
   content: string;
   createdAt: Date;
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 };
