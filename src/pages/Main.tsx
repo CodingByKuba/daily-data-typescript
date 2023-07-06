@@ -13,9 +13,12 @@ import Debt from "./Debt";
 import Add from "./Add";
 import Settings from "./Settings";
 import Edit from "./Edit";
+import { useFetchContext } from "../context/FetchContext";
+import FullPageLoader from "../components/FullPageLoader";
 
 const Main = () => {
   const { userState } = useUserContext();
+  const { isPending } = useFetchContext();
 
   if (!userState.username && !userState.token) return <Login />;
 
@@ -42,6 +45,7 @@ const Main = () => {
             </Routes>
           </main>
           <NavigationDrawer />
+          {isPending ? <FullPageLoader /> : null}
         </BrowserRouter>
       </DataLoader>
     </ServerRefresher>

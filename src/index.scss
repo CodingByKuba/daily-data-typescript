@@ -69,3 +69,7 @@ nav {
 article {
   @include article();
 }
+
+aside {
+  @include fullPageLoader();
+}
