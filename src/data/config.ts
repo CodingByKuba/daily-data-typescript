@@ -1,7 +1,7 @@
 import { Config } from "./types";
 
 const config: Config = {
-  AX_BASE_URL: "https://perfect-cow-singlet.cyclic.app",
+  AX_BASE_URL: "https://daily-data-server.onrender.com",
   AX_CHECK_ALIVE: "/check-alive",
   AX_ROUTE_USERS: "/users",
   AX_ROUTE_EVENTS: "/events",
