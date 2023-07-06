@@ -1,6 +1,4 @@
-import { UserEventType, UserInitialStateType } from "../data/types";
+import { EventType, UserInitialStateType } from "../data/types";
 
-export const eventsSorter = (state: UserInitialStateType): UserEventType[] =>
-  state.events.sort((a: UserEventType, b: UserEventType) =>
-    a.time < b.time ? -1 : 1
-  );
+export const eventsSorter = (state: UserInitialStateType): EventType[] =>
+  state.events.sort((a: EventType, b: EventType) => (a.time < b.time ? -1 : 1));

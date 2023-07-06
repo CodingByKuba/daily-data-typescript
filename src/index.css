@@ -229,9 +229,17 @@ article a {
   font-size: 1.2rem;
   text-decoration: underline;
 }
+article pre {
+  margin: 0.5rem;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
 article span {
   color: black;
   font-size: 0.6rem;
+}
+article p {
+  margin: 0;
 }
 article .delete {
   position: absolute;

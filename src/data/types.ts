@@ -58,15 +58,6 @@ export type UserInitialStateType = {
   weatherCity: null | number;
 };
 
-export type UserEventType = {
-  id: string;
-  comment: string;
-  time: Date;
-  title: string;
-  createdAt: Date;
-  updatedAt: Date;
-};
-
 export type NavigationLinkType = {
   url: string;
   name: string;
@@ -76,6 +67,28 @@ export type NoteType = {
   id: string;
   title: string;
   content: string;
+  createdAt: Date;
+  updatedAt?: Date | undefined;
+};
+
+export type ContactType = {
+  id: string;
+  name: string;
+  phone: number;
+  email: string;
+  debt: any[];
+  comment: string;
+  instagramLink: string | null;
+  facebookLink: string | null;
+  createdAt: Date;
+  updatedAt?: Date | undefined;
+};
+
+export type EventType = {
+  id: string;
+  title: string;
+  comment: string;
+  time: Date;
   createdAt: Date;
   updatedAt?: Date | undefined;
 };
