@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import NoteList from "../components/NoteList";
+import NoteList from "../components/lists/NoteList";
 
 const Notes = () => {
   const params = useParams();

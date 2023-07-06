@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { NoteType } from "../data/types";
-import dateParser from "../utils/dateParser";
-import { useFetchContext } from "../context/FetchContext";
-import config from "../data/config";
-import { useUserContext } from "../context/UserContext";
+import { NoteType } from "../../data/types";
+import dateParser from "../../utils/dateParser";
+import { useFetchContext } from "../../context/FetchContext";
+import config from "../../data/config";
+import { useUserContext } from "../../context/UserContext";
 import { useState } from "react";
-import InfoBox from "./InfoBox";
-import { ReducerActions } from "../data/enums";
+import InfoBox from "../InfoBox";
+import { ReducerActions } from "../../data/enums";
 
 const Note = (props: NoteType) => {
   const { fetchCallback } = useFetchContext();
