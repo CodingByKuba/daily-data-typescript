@@ -4,7 +4,7 @@ import ContactList from "../components/lists/ContactList";
 const Contacts = () => {
   const params = useParams();
 
-  return <div>{params.id ? "Kontakt " + params.id : <ContactList />}</div>;
+  return <>{params.id ? "Kontakt " + params.id : <ContactList />}</>;
 };
 
 export default Contacts;

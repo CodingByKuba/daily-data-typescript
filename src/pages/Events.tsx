@@ -4,7 +4,7 @@ import EventList from "../components/lists/EventList";
 const Events = () => {
   const params = useParams();
 
-  return <div>{params.id ? "Wydarzenie " + params.id : <EventList />}</div>;
+  return <>{params.id ? "Wydarzenie " + params.id : <EventList />}</>;
 };
 
 export default Events;

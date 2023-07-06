@@ -4,7 +4,7 @@ import NoteList from "../components/lists/NoteList";
 const Notes = () => {
   const params = useParams();
 
-  return <div>{params.id ? "Notatka " + params.id : <NoteList />}</div>;
+  return <>{params.id ? "Notatka " + params.id : <NoteList />}</>;
 };
 
 export default Notes;

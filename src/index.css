@@ -213,6 +213,7 @@ nav a.active {
 article {
   width: calc(100% - 0.5rem);
   padding: 0.5rem;
+  padding-right: 4rem;
   border-radius: 0.5rem;
   margin: 0.3rem;
   background-color: rgb(117, 117, 117);
