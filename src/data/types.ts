@@ -92,3 +92,14 @@ export type EventType = {
   createdAt: Date;
   updatedAt?: Date | undefined;
 };
+
+export type DebtType = {
+  id: string;
+  my: boolean;
+  count: number;
+  comment: string;
+  time: Date;
+  createdAt: Date;
+  updatedAt?: Date | undefined;
+  username?: string;
+};

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useUserContext } from "../context/UserContext";
 import { ReducerActions } from "../data/enums";
 import { eventsSorter } from "../utils/dataSorters";
-import Event from "../components/elements/Event";
+import Event from "../components/elements/EventElement";
 
 const Board = () => {
   const { userState, userDispatch } = useUserContext();

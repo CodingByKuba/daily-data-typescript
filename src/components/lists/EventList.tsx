@@ -1,7 +1,7 @@
 import { useUserContext } from "../../context/UserContext";
 import { EventType } from "../../data/types";
 import InfoBox from "../InfoBox";
-import Event from "../elements/Event";
+import Event from "../elements/EventElement";
 
 const EventList = () => {
   const { userState } = useUserContext();

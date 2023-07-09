@@ -12,7 +12,6 @@ import Events from "./Events";
 import Debt from "./Debt";
 import Add from "./Add";
 import Settings from "./Settings";
-import Edit from "./Edit";
 import { useFetchContext } from "../context/FetchContext";
 import FullPageLoader from "../components/FullPageLoader";
 
@@ -37,9 +36,9 @@ const Main = () => {
               <Route path="/events" element={<Events />} />
               <Route path="/events/:id" element={<Events />} />
               <Route path="/debt" element={<Debt />} />
+              <Route path="/debt/:user/:id" element={<Debt />} />
               <Route path="/add" element={<Add />} />
               <Route path="/add/:type" element={<Add />} />
-              <Route path="/edit/:type/:id" element={<Edit />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="*" element={<div>Error</div>} />
             </Routes>
