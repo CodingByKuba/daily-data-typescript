@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useUserContext } from "../../context/UserContext";
 import { ContactType, DebtType } from "../../data/types";
 import InfoBox from "../InfoBox";
-import Debt from "../elements/Debt";
+import Debt from "../elements/DebtElement";
 
 const DebtList = () => {
   const { userState } = useUserContext();

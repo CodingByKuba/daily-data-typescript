@@ -1,7 +1,7 @@
 import { useUserContext } from "../../context/UserContext";
 import { ContactType } from "../../data/types";
 import InfoBox from "../InfoBox";
-import Contact from "../elements/Contact";
+import Contact from "../elements/ContactElement";
 
 const ContactList = () => {
   const { userState } = useUserContext();

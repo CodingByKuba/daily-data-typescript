@@ -1,7 +1,7 @@
 import { useUserContext } from "../../context/UserContext";
 import { NoteType } from "../../data/types";
 import InfoBox from "../InfoBox";
-import Note from "../elements/Note";
+import Note from "../elements/NoteElement";
 
 const NoteList = () => {
   const { userState } = useUserContext();
