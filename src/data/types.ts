@@ -48,6 +48,7 @@ export type InfoBoxType = {
 };
 
 export type UserInitialStateType = {
+  serverAlive: boolean;
   dataLoaded: boolean;
   navigationOpened: boolean;
   username: string;

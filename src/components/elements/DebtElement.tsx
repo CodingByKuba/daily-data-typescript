@@ -53,6 +53,7 @@ const DebtElement = (props: DebtType) => {
         {props.my ? "Masz do oddania " : props.username + " ma do oddania "}
         {props.count} zł
       </p>
+      <p>Pożyczono: {dateParser(props.time)}</p>
       {props.comment && <pre>{props.comment}</pre>}
       <span>Utworzono: {dateParser(props.createdAt)}</span>
       {props.updatedAt && <span>Edytowano: {dateParser(props.updatedAt)}</span>}

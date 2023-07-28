@@ -10,6 +10,7 @@ const userReducer = (
     case ReducerActions.SET_DATA:
       return {
         ...state,
+        serverAlive: action.payload.serverAlive || state.serverAlive,
         dataLoaded: action.payload.dataLoaded || state.dataLoaded,
         navigationOpened: action.payload.navigationOpened || false,
         username: action.payload.username || state.username,
@@ -20,7 +21,7 @@ const userReducer = (
         weatherCity: action.payload.weatherCity || state.weatherCity,
       };
     case ReducerActions.ON_LOGOUT:
-      return userInitialState;
+      return { ...userInitialState, serverAlive: true };
     default:
       return state;
   }

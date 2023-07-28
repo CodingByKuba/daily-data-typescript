@@ -14,10 +14,13 @@ import Add from "./Add";
 import Settings from "./Settings";
 import { useFetchContext } from "../context/FetchContext";
 import FullPageLoader from "../components/FullPageLoader";
+import CheckServer from "../components/CheckServer";
 
 const Main = () => {
   const { userState } = useUserContext();
   const { isPending } = useFetchContext();
+
+  if (!userState.serverAlive) return <CheckServer />;
 
   if (!userState.username && !userState.token) return <Login />;
 
