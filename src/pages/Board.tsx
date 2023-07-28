@@ -1,33 +1,32 @@
-import { useEffect } from "react";
 import { useUserContext } from "../context/UserContext";
-import { ReducerActions } from "../data/enums";
 import { eventsSorter } from "../utils/dataSorters";
 import Event from "../components/elements/EventElement";
+import { EventType } from "../data/types";
+import { useMemo } from "react";
 
 const Board = () => {
-  const { userState, userDispatch } = useUserContext();
+  const { userState } = useUserContext();
 
-  useEffect(() => {
-    if (userState.events.length > 0)
-      userDispatch({
-        type: ReducerActions.SET_DATA,
-        payload: { events: eventsSorter(userState) },
-      });
-  }, []);
+  const firstEvent: EventType | undefined = useMemo(
+    () =>
+      userState.events.length > 0 ? eventsSorter(userState)[0] : undefined,
+    [userState]
+  );
 
   return (
     <div id="board">
       <h1>Witaj {userState.username}</h1>
-      {userState.events.length > 0 && (
+      {firstEvent && (
         <>
           <p>Najbliższe wydarzenie:</p>
           <Event
-            id={userState.events[0].id}
-            title={userState.events[0].title}
-            comment={userState.events[0].comment}
-            time={userState.events[0].time}
-            createdAt={userState.events[0].createdAt}
-            updatedAt={userState.events[0].updatedAt}
+            id={firstEvent.id}
+            title={firstEvent.title}
+            comment={firstEvent.comment}
+            time={firstEvent.time}
+            createdAt={firstEvent.createdAt}
+            updatedAt={firstEvent.updatedAt}
+            noDelete
           />
         </>
       )}

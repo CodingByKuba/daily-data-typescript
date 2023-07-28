@@ -7,7 +7,7 @@ import { useFetchContext } from "../../context/FetchContext";
 import InfoBox from "../InfoBox";
 import Loader from "../Loader";
 
-const NoteEditor = (props: Pick<NoteType, "id"> | undefined) => {
+const NoteEditor = (props: Pick<NoteType, "id">) => {
   const { userState, userDispatch } = useUserContext();
   const { isPending, fetchCallback } = useFetchContext();
 
@@ -23,7 +23,7 @@ const NoteEditor = (props: Pick<NoteType, "id"> | undefined) => {
     setFetchError("");
     fetchCallback({
       url: config.AX_ROUTE_NOTES,
-      method: props?.id ? "PUT" : "POST",
+      method: props.id !== "none" ? "PUT" : "POST",
       payload: {
         username: userState.username,
         token: userState.token,
@@ -38,7 +38,7 @@ const NoteEditor = (props: Pick<NoteType, "id"> | undefined) => {
           payload: { notes: response.data.notes },
         });
         setFetchSuccess(
-          "Notatka została " + (noteFinded ? "edytowana" : "dodana")
+          "Notatka została " + (props.id !== "none" ? "edytowana" : "dodana")
         );
       },
       errorCallback: (error: any) => setFetchError(error.message),
@@ -46,30 +46,31 @@ const NoteEditor = (props: Pick<NoteType, "id"> | undefined) => {
   };
 
   useEffect(() => {
-    if (props?.id !== "none") {
+    if (props.id !== "none") {
       let findNote: NoteType = userState.notes.find(
-        (el: NoteType) => el.id === props?.id
+        (el: NoteType) => el.id === props.id
       );
       if (findNote.id) {
         setNoteTitle(findNote.title);
         setNoteContent(findNote.content);
+        setNoteFinded(true);
       }
     }
-    setNoteFinded(true);
   }, []);
 
-  if (!noteFinded) return <div>Nie znaleziono notatki</div>;
+  if (!noteFinded && props.id !== "none")
+    return <div>Nie znaleziono notatki</div>;
 
   return (
     <>
-      {fetchError && <InfoBox type="error" message={fetchError} />}
-      {fetchSuccess && <InfoBox type="success" message={fetchSuccess} />}
       <form
         onSubmit={(e) => {
           e.preventDefault();
           handleSubmit();
         }}
       >
+        {fetchError && <InfoBox type="error" message={fetchError} />}
+        {fetchSuccess && <InfoBox type="success" message={fetchSuccess} />}
         <p>Tytuł notatki:</p>
         <input
           type="text"
@@ -84,7 +85,9 @@ const NoteEditor = (props: Pick<NoteType, "id"> | undefined) => {
         {isPending ? (
           <Loader />
         ) : (
-          <button type="submit">{props?.id ? "Edytuj" : "Dodaj"}</button>
+          <button type="submit">
+            {props.id !== "none" ? "Edytuj" : "Dodaj"}
+          </button>
         )}
       </form>
     </>

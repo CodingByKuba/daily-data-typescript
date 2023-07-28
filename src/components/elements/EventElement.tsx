@@ -44,9 +44,11 @@ const EventElement = (props: EventType) => {
       <p>Odbędzie się: {dateParser(props.time)}</p>
       <span>Utworzono: {dateParser(props.createdAt)}</span>
       {props.updatedAt && <span>Edytowano: {dateParser(props.updatedAt)}</span>}
-      <div className="delete">
-        <button onClick={handleDelete}>Usuń</button>
-      </div>
+      {!props.noDelete && (
+        <div className="delete">
+          <button onClick={handleDelete}>Usuń</button>
+        </div>
+      )}
     </article>
   );
 };

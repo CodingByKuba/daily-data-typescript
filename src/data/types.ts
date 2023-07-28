@@ -92,6 +92,7 @@ export type EventType = {
   time: Date;
   createdAt: Date;
   updatedAt?: Date | undefined;
+  noDelete?: boolean;
 };
 
 export type DebtType = {
