@@ -7,6 +7,7 @@ import { useUserContext } from "../../context/UserContext";
 import { useState } from "react";
 import InfoBox from "../InfoBox";
 import { ReducerActions } from "../../data/enums";
+import DeleteButton from "../DeleteButton";
 
 const ContactElement = (props: ContactType) => {
   const { fetchCallback } = useFetchContext();
@@ -47,9 +48,7 @@ const ContactElement = (props: ContactType) => {
       {props.instagramLink && <p>Instagram: {props.instagramLink}</p>}
       <span>Utworzono: {dateParser(props.createdAt)}</span>
       {props.updatedAt && <span>Edytowano: {dateParser(props.updatedAt)}</span>}
-      <div className="delete">
-        <button onClick={handleDelete}>Usuń</button>
-      </div>
+      <DeleteButton handleClick={handleDelete} />
     </article>
   );
 };

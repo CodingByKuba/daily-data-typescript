@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 import { ReducerActions } from "../data/enums";
 import config from "../data/config";
+import { AiOutlineMenu, AiOutlineLogout } from "react-icons/ai";
 
 const TopNavBar = () => {
   const { userDispatch } = useUserContext();
@@ -19,7 +20,7 @@ const TopNavBar = () => {
             })
           }
         >
-          Menu
+          <AiOutlineMenu size={20} />
         </button>
       </div>
       <div className="title">{config.LOCATION_NAMES[location.pathname]}</div>
@@ -32,7 +33,7 @@ const TopNavBar = () => {
             userDispatch({ type: ReducerActions.ON_LOGOUT });
           }}
         >
-          Wyloguj
+          <AiOutlineLogout size={20} />
         </button>
       </div>
     </header>

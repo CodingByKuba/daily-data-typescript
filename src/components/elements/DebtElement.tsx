@@ -7,6 +7,7 @@ import { useUserContext } from "../../context/UserContext";
 import { useState } from "react";
 import InfoBox from "../InfoBox";
 import { ReducerActions } from "../../data/enums";
+import DeleteButton from "../DeleteButton";
 
 const DebtElement = (props: DebtType) => {
   const { fetchCallback } = useFetchContext();
@@ -57,9 +58,7 @@ const DebtElement = (props: DebtType) => {
       {props.comment && <pre>{props.comment}</pre>}
       <span>Utworzono: {dateParser(props.createdAt)}</span>
       {props.updatedAt && <span>Edytowano: {dateParser(props.updatedAt)}</span>}
-      <div className="delete">
-        <button onClick={handleDelete}>Usuń</button>
-      </div>
+      <DeleteButton handleClick={handleDelete} />
     </article>
   );
 };

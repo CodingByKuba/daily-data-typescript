@@ -7,6 +7,7 @@ import { useUserContext } from "../../context/UserContext";
 import { useState } from "react";
 import InfoBox from "../InfoBox";
 import { ReducerActions } from "../../data/enums";
+import DeleteButton from "../DeleteButton";
 
 const EventElement = (props: EventType) => {
   const { fetchCallback } = useFetchContext();
@@ -44,11 +45,7 @@ const EventElement = (props: EventType) => {
       <p>Odbędzie się: {dateParser(props.time)}</p>
       <span>Utworzono: {dateParser(props.createdAt)}</span>
       {props.updatedAt && <span>Edytowano: {dateParser(props.updatedAt)}</span>}
-      {!props.noDelete && (
-        <div className="delete">
-          <button onClick={handleDelete}>Usuń</button>
-        </div>
-      )}
+      {!props.noDelete && <DeleteButton handleClick={handleDelete} />}
     </article>
   );
 };

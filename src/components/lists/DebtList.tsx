@@ -3,19 +3,25 @@ import { useUserContext } from "../../context/UserContext";
 import { ContactType, DebtType } from "../../data/types";
 import InfoBox from "../InfoBox";
 import Debt from "../elements/DebtElement";
+import Loader from "../Loader";
 
 const DebtList = () => {
   const { userState } = useUserContext();
   const [contactsWithDebt, setContactsWithDebt] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    if (userState.contacts.length === 0) return;
+    if (userState.contacts.length === 0) return setLoading(false);
 
     userState.contacts.map((el: ContactType) => {
       if (el.debt.length > 0)
         setContactsWithDebt((currentValue) => currentValue + 1);
     });
+
+    setLoading(false);
   }, []);
+
+  if (loading) return <Loader />;
 
   if (contactsWithDebt === 0)
     return <InfoBox type="info" message="Brak zadłużeń" />;
