@@ -7,11 +7,13 @@ import {
   BsFillCreditCard2FrontFill,
 } from "react-icons/bs";
 import EventEditor from "../components/editors/EventEditor";
+import ContactEditor from "../components/editors/ContactEditor";
 
 const Add = () => {
   const params = useParams();
 
   if (params.type === "note") return <NoteEditor id="none" />;
+  if (params.type === "contact") return <ContactEditor id="none" />;
   if (params.type === "event") return <EventEditor id="none" />;
 
   return (

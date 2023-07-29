@@ -79,8 +79,8 @@ export type ContactType = {
   email: string;
   debt: any[];
   comment: string;
-  instagramLink: string | null;
-  facebookLink: string | null;
+  instagramLink: string;
+  facebookLink: string;
   createdAt: Date;
   updatedAt?: Date | undefined;
 };
