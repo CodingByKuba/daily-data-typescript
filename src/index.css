@@ -78,6 +78,8 @@ button:hover, button:focus {
 }
 #login header h1 {
   visibility: hidden;
+  margin: 0;
+  font-size: 0.05rem;
 }
 #login #log-form {
   display: flex;

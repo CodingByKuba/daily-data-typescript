@@ -10,6 +10,14 @@ export type Config = {
   AX_ROUTE_NOTES: "/notes";
   LOCATION_NAMES: any;
   NAVIGATION_LINKS: NavigationLinkType[];
+  MEMORY_SLOTS: MemorySlotsType;
+};
+
+type MemorySlotsType = {
+  login: string;
+  password: string;
+  passwordRemember: string;
+  autoLogin: string;
 };
 
 export type ReducerActionType = {

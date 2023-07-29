@@ -3,9 +3,11 @@ import { useUserContext } from "../context/UserContext";
 import { ReducerActions } from "../data/enums";
 import config from "../data/config";
 import { AiOutlineMenu, AiOutlineLogout } from "react-icons/ai";
+import { useLocalStorageContext } from "../context/LocalStorageContext";
 
 const TopNavBar = () => {
   const { userDispatch } = useUserContext();
+  const { setAutoLogin } = useLocalStorageContext();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -27,6 +29,7 @@ const TopNavBar = () => {
       <div className="logout">
         <button
           onClick={() => {
+            setAutoLogin(false);
             navigate("/", {
               replace: true,
             });

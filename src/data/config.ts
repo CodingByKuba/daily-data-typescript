@@ -32,6 +32,12 @@ const config: Config = {
     { url: "add", name: "Dodaj" },
     { url: "settings", name: "Ustawienia" },
   ],
+  MEMORY_SLOTS: {
+    login: "DD-App-memory-login",
+    password: "DD-App-memory-password",
+    passwordRemember: "DD-App-memory-password-remember",
+    autoLogin: "DD-App-memory-auto-login",
+  },
 };
 
 export default config;
