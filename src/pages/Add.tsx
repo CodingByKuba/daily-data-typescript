@@ -1,5 +1,11 @@
 import { NavLink, useParams } from "react-router-dom";
 import NoteEditor from "../components/editors/NoteEditor";
+import {
+  BsFillFileEarmarkFontFill,
+  BsFillFileEarmarkPersonFill,
+  BsFillCalendar2PlusFill,
+  BsFillCreditCard2FrontFill,
+} from "react-icons/bs";
 
 const Add = () => {
   const params = useParams();
@@ -7,11 +13,19 @@ const Add = () => {
   if (params.type === "note") return <NoteEditor id="none" />;
 
   return (
-    <div className="center-flex">
-      <NavLink to="/add/note">Notatka</NavLink>
-      <NavLink to="/add/contact">Kontakt</NavLink>
-      <NavLink to="/add/event">Wydarzenie</NavLink>
-      <NavLink to="/add/debt">Zadłużenie</NavLink>
+    <div className="add">
+      <NavLink to="/add/note">
+        <BsFillFileEarmarkFontFill size={30} />
+      </NavLink>
+      <NavLink to="/add/contact">
+        <BsFillFileEarmarkPersonFill size={30} />
+      </NavLink>
+      <NavLink to="/add/event">
+        <BsFillCalendar2PlusFill size={30} />
+      </NavLink>
+      <NavLink to="/add/debt">
+        <BsFillCreditCard2FrontFill size={30} />
+      </NavLink>
     </div>
   );
 };

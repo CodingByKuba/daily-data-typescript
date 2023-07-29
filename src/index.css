@@ -311,4 +311,22 @@ aside {
   align-items: center;
   justify-content: center;
   gap: 0;
+}
+
+.add {
+  gap: 0.5rem;
+  display: flex;
+  flex: 1;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 3rem;
+}
+.add a {
+  display: block;
+  background-color: rgb(68, 68, 68);
+  padding: 1rem;
+  color: rgba(255, 255, 255, 0.87);
+  border-radius: 50%;
 }/*# sourceMappingURL=index.css.map */

@@ -212,3 +212,21 @@
   z-index: 9999;
   @include flexDisplay();
 }
+
+@mixin add() {
+  gap: 0.5rem;
+  display: flex;
+  flex: 1;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 3rem;
+  a {
+    display: block;
+    background-color: $topNavBarBackground;
+    padding: 1rem;
+    color: $mainTextColor;
+    border-radius: 50%;
+  }
+}
