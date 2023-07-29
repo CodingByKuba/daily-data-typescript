@@ -6,11 +6,13 @@ import {
   BsFillCalendar2PlusFill,
   BsFillCreditCard2FrontFill,
 } from "react-icons/bs";
+import EventEditor from "../components/editors/EventEditor";
 
 const Add = () => {
   const params = useParams();
 
   if (params.type === "note") return <NoteEditor id="none" />;
+  if (params.type === "event") return <EventEditor id="none" />;
 
   return (
     <div className="add">

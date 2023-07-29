@@ -2,16 +2,12 @@ import { useUserContext } from "../context/UserContext";
 import { eventsSorter } from "../utils/dataSorters";
 import Event from "../components/elements/EventElement";
 import { EventType } from "../data/types";
-import { useMemo } from "react";
 
 const Board = () => {
   const { userState } = useUserContext();
 
-  const firstEvent: EventType | undefined = useMemo(
-    () =>
-      userState.events.length > 0 ? eventsSorter(userState)[0] : undefined,
-    [userState]
-  );
+  const firstEvent: EventType | undefined =
+    userState.events.length > 0 ? eventsSorter(userState)[0] : undefined;
 
   return (
     <div id="board">
