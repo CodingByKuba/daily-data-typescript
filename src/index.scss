@@ -20,7 +20,8 @@ body {
 }
 
 input,
-button {
+button,
+select {
   @include inputAndButton();
 }
 

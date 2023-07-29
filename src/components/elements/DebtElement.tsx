@@ -30,7 +30,7 @@ const DebtElement = (props: DebtType) => {
         payload: {
           username: userState.username,
           token: userState.token,
-          id: props.username,
+          id: props.contactId,
           debtId: props.id,
         },
         successCallback: (response: any) => {
@@ -47,7 +47,7 @@ const DebtElement = (props: DebtType) => {
 
   return (
     <article>
-      <NavLink to={props.username + "/" + props.id}>{props.count} zł</NavLink>
+      <NavLink to={props.contactId + "/" + props.id}>{props.count} zł</NavLink>
       {deleteError && <InfoBox type="error" message={deleteError} />}
       <p>
         {props.my ? "Masz do oddania " : props.username + " ma do oddania "}

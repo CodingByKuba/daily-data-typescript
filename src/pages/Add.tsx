@@ -8,6 +8,7 @@ import {
 } from "react-icons/bs";
 import EventEditor from "../components/editors/EventEditor";
 import ContactEditor from "../components/editors/ContactEditor";
+import DebtEditor from "../components/editors/DebtEditor";
 
 const Add = () => {
   const params = useParams();
@@ -15,6 +16,7 @@ const Add = () => {
   if (params.type === "note") return <NoteEditor id="none" />;
   if (params.type === "contact") return <ContactEditor id="none" />;
   if (params.type === "event") return <EventEditor id="none" />;
+  if (params.type === "debt") return <DebtEditor id="none" user="none" />;
 
   return (
     <div className="add">

@@ -104,4 +104,5 @@ export type DebtType = {
   createdAt: Date;
   updatedAt?: Date | undefined;
   username?: string;
+  contactId?: string;
 };

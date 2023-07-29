@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import DebtList from "../components/lists/DebtList";
+import DebtEditor from "../components/editors/DebtEditor";
 
 const Debt = () => {
   const params = useParams();
@@ -7,7 +8,7 @@ const Debt = () => {
   return (
     <>
       {params.id && params.user ? (
-        "Zadłużenie (" + params.user + ") " + params.id
+        <DebtEditor id={params.id} user={params.user} />
       ) : (
         <DebtList />
       )}
