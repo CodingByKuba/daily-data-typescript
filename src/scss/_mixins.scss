@@ -17,6 +17,13 @@
   max-width: $max-width;
   max-height: $max-height;
 }
+@mixin anchor() {
+  color: $buttonInputAnchor;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
 
 @mixin inputAndButton(
   $padding: 0.5rem,
@@ -28,7 +35,12 @@
   margin: $margin;
   border-radius: $border-radius;
   font-size: $font-size;
-  border: 1px solid black;
+  border: none;
+  background-color: $buttonInputAnchor;
+}
+
+@mixin textarea() {
+  font-size: 0.8rem;
 }
 
 @mixin button {

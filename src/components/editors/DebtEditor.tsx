@@ -120,7 +120,7 @@ const DebtEditor = (props: PropsType) => {
           value={debtCount}
           onChange={(e) => setDebtCount(e.target.value)}
         />
-        <div>
+        <div className={debtMy ? "red" : "green"}>
           <input
             type="checkbox"
             checked={debtMy}

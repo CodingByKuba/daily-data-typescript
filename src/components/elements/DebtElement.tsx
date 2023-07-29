@@ -50,7 +50,7 @@ const DebtElement = (props: DebtType) => {
     <article>
       <NavLink to={props.contactId + "/" + props.id}>{props.count} zł</NavLink>
       {deleteError && <InfoBox type="error" message={deleteError} />}
-      <p>
+      <p className={props.my ? "red" : "green"}>
         {props.my ? "Masz do oddania " : props.username + " ma do oddania "}
         {props.count} zł
       </p>

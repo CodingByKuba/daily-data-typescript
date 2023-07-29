@@ -1,6 +1,6 @@
-$mainTextColor: rgba(255, 255, 255, 0.87);
+$mainTextColor: rgba(182, 176, 233, 0.87);
 $mainFontSize: calc(10px + 1vmin);
-$appBackground: #242424;
+$appBackground: linear-gradient(rgb(3, 3, 29), rgb(22, 22, 90));
 
 $infoSuccessBackground: rgb(0, 34, 0);
 $infoSuccessColor: rgb(106, 218, 106);
@@ -11,5 +11,17 @@ $infoErrorColor: rgb(218, 106, 106);
 $infoWarningBackground: rgb(54, 50, 0);
 $infoWarningColor: rgb(216, 218, 106);
 
-$topNavBarBackground: rgb(68, 68, 68);
+$topNavBarBackground: rgba(24, 25, 53, 0.87);
 $topNavBarHeight: 3rem;
+
+$logFormBackground: rgba(0, 0, 0, 0.5);
+$navDrawerBackground: rgba(2, 1, 29, 0.801);
+$navDrawerOptionBackground: rgba(1, 1, 15, 0.925);
+$navDrawerTextBackground: rgb(138, 138, 211);
+$navDrawerActiveOptionBackground: rgba(138, 138, 211, 0.925);
+$navDrawerActiveTextBackground: rgb(1, 1, 15);
+
+$recordBackground: rgba(1, 1, 15, 0.9);
+$recordCommentBackground: rgba(4, 4, 49, 0.9);
+
+$buttonInputAnchor: rgb(134, 134, 192);

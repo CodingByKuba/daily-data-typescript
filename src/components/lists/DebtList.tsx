@@ -28,29 +28,37 @@ const DebtList = () => {
 
   return (
     <>
-      {userState.contacts.map(
-        (elem: ContactType) =>
-          elem.debt.length > 0 && (
-            <section key={elem.id}>
-              <h3>{elem.name}</h3>
-              {elem.debt.length > 0 &&
-                elem.debt.map((el: DebtType) => (
-                  <Debt
-                    key={el.id}
-                    id={el.id}
-                    my={el.my}
-                    count={el.count}
-                    comment={el.comment}
-                    time={el.time}
-                    createdAt={el.createdAt}
-                    updatedAt={el.updatedAt || undefined}
-                    username={elem.name}
-                    contactId={elem.id}
-                  />
-                ))}
-            </section>
-          )
-      )}
+      {userState.contacts.map((elem: ContactType) => {
+        if (elem.debt.length === 0) return;
+        let totalMoney = elem.debt.reduce(
+          (total, current) =>
+            current.my ? total - current.count : total + current.count,
+          0
+        );
+
+        return (
+          <section key={elem.id}>
+            <h3 className={totalMoney < 0 ? "red" : "green"}>
+              {elem.name + " (" + totalMoney.toString() + " zł)"}
+            </h3>
+            {elem.debt.length > 0 &&
+              elem.debt.map((el: DebtType) => (
+                <Debt
+                  key={el.id}
+                  id={el.id}
+                  my={el.my}
+                  count={el.count}
+                  comment={el.comment}
+                  time={el.time}
+                  createdAt={el.createdAt}
+                  updatedAt={el.updatedAt || undefined}
+                  username={elem.name}
+                  contactId={elem.id}
+                />
+              ))}
+          </section>
+        );
+      })}
     </>
   );
 };

@@ -19,10 +19,19 @@ body {
   @include body();
 }
 
+a {
+  @include anchor();
+}
+
 input,
 button,
-select {
+select,
+textarea {
   @include inputAndButton();
+}
+
+textarea {
+  @include textarea();
 }
 
 button {
@@ -81,4 +90,11 @@ aside {
 
 .add {
   @include add();
+}
+
+.red {
+  color: red;
+}
+.green {
+  color: green;
 }
