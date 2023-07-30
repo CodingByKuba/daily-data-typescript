@@ -6,6 +6,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light dark;
   color: $mainTextColor;
+  position: relative;
   background: $appBackground;
   background-attachment: fixed;
   font-size: $mainFontSize;
@@ -24,6 +25,11 @@
   margin: 0;
   @include size($width: 100%, $height: 100vh);
   @include flexDisplay($justify: flex-start);
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 @mixin login {
@@ -86,6 +92,7 @@
   height: $topNavBarHeight;
   width: 100%;
   background-color: $topNavBarBackground;
+  backdrop-filter: blur(0.2rem);
   @include flexDisplay($direction: row);
   & > * {
     @include flexDisplay();
@@ -97,8 +104,33 @@
   }
 }
 
+@mixin footerMenu() {
+  z-index: 998;
+  position: fixed;
+  bottom: 0;
+  height: $topNavBarHeight;
+  width: 100%;
+  background-color: $topNavBarBackground;
+  backdrop-filter: blur(0.2rem);
+  @include flexDisplay($direction: row, $justify: space-around);
+  a {
+    font-size: 2rem;
+    color: $recordBackground;
+  }
+  a.active {
+    color: $mainTextColor;
+  }
+  @media only screen and (min-width: 672px) {
+    display: none;
+  }
+}
+
 @mixin main {
   padding-top: $topNavBarHeight;
+  padding-bottom: $topNavBarHeight;
+  @media only screen and (min-width: 672px) {
+    padding-bottom: 0;
+  }
   @include flexDisplay($justify: flex-start);
   @media only screen and (min-width: 800px) {
     flex-wrap: wrap;

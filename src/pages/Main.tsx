@@ -17,6 +17,7 @@ import FullPageLoader from "../components/FullPageLoader";
 import CheckServer from "../components/CheckServer";
 import WeatherStationsLoader from "../components/WeatherStationsLoader";
 import config from "../data/config";
+import FooterMenu from "../components/FooterMenu";
 
 const Main = () => {
   const { userState } = useUserContext();
@@ -32,6 +33,7 @@ const Main = () => {
         <WeatherStationsLoader />
         <BrowserRouter basename={config.BASE_URL}>
           <TopNavBar />
+          <FooterMenu />
           <main>
             <Routes>
               <Route path="/" element={<Board />} />

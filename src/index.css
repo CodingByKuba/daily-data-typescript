@@ -14,6 +14,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light dark;
   color: rgba(182, 176, 233, 0.87);
+  position: relative;
   background: linear-gradient(rgb(3, 3, 29), rgb(22, 22, 90));
   background-attachment: fixed;
   font-size: calc(10px + 1vmin);
@@ -39,6 +40,11 @@ body {
   align-items: center;
   justify-content: flex-start;
   gap: 0;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 
 a {
@@ -167,6 +173,8 @@ button:hover, button:focus {
   height: 3rem;
   width: 100%;
   background-color: rgba(24, 25, 53, 0.87);
+  -webkit-backdrop-filter: blur(0.2rem);
+          backdrop-filter: blur(0.2rem);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -186,13 +194,47 @@ button:hover, button:focus {
   flex: 1;
 }
 
+#footer-menu {
+  z-index: 998;
+  position: fixed;
+  bottom: 0;
+  height: 3rem;
+  width: 100%;
+  background-color: rgba(24, 25, 53, 0.87);
+  -webkit-backdrop-filter: blur(0.2rem);
+          backdrop-filter: blur(0.2rem);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0;
+}
+#footer-menu a {
+  font-size: 2rem;
+  color: rgba(1, 1, 15, 0.9);
+}
+#footer-menu a.active {
+  color: rgba(182, 176, 233, 0.87);
+}
+@media only screen and (min-width: 672px) {
+  #footer-menu {
+    display: none;
+  }
+}
+
 main {
   padding-top: 3rem;
+  padding-bottom: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: 0;
+}
+@media only screen and (min-width: 672px) {
+  main {
+    padding-bottom: 0;
+  }
 }
 @media only screen and (min-width: 800px) {
   main {
