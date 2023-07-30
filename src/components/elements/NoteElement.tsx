@@ -43,7 +43,9 @@ const NoteElement = (props: NoteType) => {
       {deleteError && <InfoBox type="error" message={deleteError} />}
       {props.content && <pre>{props.content}</pre>}
       <span>Utworzono: {dateParser(props.createdAt)}</span>
-      {props.updatedAt && <span>Edytowano: {dateParser(props.updatedAt)}</span>}
+      {props.updatedAt && props.updatedAt !== props.createdAt && (
+        <span>Edytowano: {dateParser(props.updatedAt)}</span>
+      )}
       <DeleteButton handleClick={handleDelete} />
     </article>
   );

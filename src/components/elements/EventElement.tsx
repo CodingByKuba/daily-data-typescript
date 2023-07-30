@@ -8,6 +8,7 @@ import { useState } from "react";
 import InfoBox from "../InfoBox";
 import { ReducerActions } from "../../data/enums";
 import DeleteButton from "../DeleteButton";
+import daysParse from "../../utils/daysParser";
 
 const EventElement = (props: EventType) => {
   const { fetchCallback } = useFetchContext();
@@ -41,11 +42,19 @@ const EventElement = (props: EventType) => {
     <article>
       <NavLink to={"/events/" + props.id}>{props.title}</NavLink>
       {deleteError && <InfoBox type="error" message={deleteError} />}
+      <p>
+        Odbędzie się: {dateParser(props.time)} ({daysParse(props.time)})
+      </p>
       {props.comment && <pre>{props.comment}</pre>}
-      <p>Odbędzie się: {dateParser(props.time)}</p>
-      <span>Utworzono: {dateParser(props.createdAt)}</span>
-      {props.updatedAt && <span>Edytowano: {dateParser(props.updatedAt)}</span>}
-      {!props.noDelete && <DeleteButton handleClick={handleDelete} />}
+      {!props.noDelete && (
+        <>
+          <span>Utworzono: {dateParser(props.createdAt)}</span>
+          {props.updatedAt && props.updatedAt !== props.createdAt && (
+            <span>Edytowano: {dateParser(props.updatedAt)}</span>
+          )}
+          <DeleteButton handleClick={handleDelete} />
+        </>
+      )}
     </article>
   );
 };
