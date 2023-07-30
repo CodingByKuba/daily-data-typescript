@@ -4,9 +4,22 @@ import Event from "../components/elements/EventElement";
 import { ContactType, EventType } from "../data/types";
 import { BsTag, BsThermometerSun, BsWind } from "react-icons/bs";
 import { WiHumidity, WiDirectionDown } from "react-icons/wi";
+import { useState, useEffect } from "react";
+import BoardCalendar from "../components/BoardCalendar";
+import BoardDataCounter from "../components/BoardDataCounter";
 
 const Board = () => {
+  let interval: any;
   const { userState } = useUserContext();
+  const [currentDate, setCurrentDate] = useState<Date>(new Date());
+
+  useEffect(() => {
+    interval = setInterval(() => {
+      setCurrentDate(new Date());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  });
 
   const firstEvent: EventType | undefined =
     userState.events.length > 0 ? eventsSorter(userState)[0] : undefined;
@@ -32,25 +45,27 @@ const Board = () => {
 
   return (
     <div id="board">
-      <h1>Witaj {userState.username}</h1>
-      {firstEvent && (
-        <>
-          <p>Najbliższe wydarzenie:</p>
-          <Event
-            id={firstEvent.id}
-            title={firstEvent.title}
-            comment={firstEvent.comment}
-            time={firstEvent.time}
-            createdAt={firstEvent.createdAt}
-            updatedAt={firstEvent.updatedAt}
-            noDelete
-          />
-        </>
-      )}
-      <article>
-        <p>Bilans zadłużeń: </p>
-        <pre className={debtCount < 0 ? "red" : "green"}>{debtCount} zł</pre>
+      <article className="no-padding" id="board-head">
+        <BoardCalendar date={currentDate} />
+        <BoardDataCounter />
       </article>
+      {firstEvent && (
+        <Event
+          id={firstEvent.id}
+          title={firstEvent.title}
+          comment={firstEvent.comment}
+          time={firstEvent.time}
+          createdAt={firstEvent.createdAt}
+          updatedAt={firstEvent.updatedAt}
+          noDelete
+        />
+      )}
+      {debtCount !== 0 && (
+        <article>
+          <p>Bilans zadłużeń: </p>
+          <pre className={debtCount < 0 ? "red" : "green"}>{debtCount} zł</pre>
+        </article>
+      )}
       {userState.weatherStations.length > 0 && currentStation && (
         <article className="no-padding">
           <p>Pogoda:</p>

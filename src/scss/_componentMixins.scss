@@ -286,3 +286,45 @@
     @include flexDisplay($gap: 0.5rem);
   }
 }
+
+@mixin boardHead() {
+  @include flexDisplay($direction: row);
+}
+
+@mixin calendar() {
+  @include flexDisplay();
+  p {
+    font-weight: bold;
+  }
+  p:nth-child(2) {
+    font-size: 2.4rem;
+    sub {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@mixin dataCounter() {
+  @include flexDisplay($direction: row, $justify: space-around);
+  flex: 1;
+  div {
+    @include flexDisplay();
+    font-size: 2rem;
+    position: relative;
+    p {
+      font-size: 0.6rem;
+    }
+    span {
+      @include flexDisplay();
+      position: absolute;
+      right: -0.2rem;
+      top: -0.5rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      text-align: center;
+      background-color: $dataCounter;
+      padding: 0.3rem;
+    }
+  }
+}

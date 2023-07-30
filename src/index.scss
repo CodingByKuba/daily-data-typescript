@@ -110,3 +110,15 @@ aside {
 .green {
   color: green;
 }
+
+#board-head {
+  @include boardHead();
+}
+
+#calendar {
+  @include calendar();
+}
+
+#data-counter {
+  @include dataCounter();
+}
