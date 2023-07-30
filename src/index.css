@@ -141,6 +141,14 @@ button:hover, button:focus {
   color: rgb(216, 218, 106);
 }
 
+.flex-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
 .center-flex {
   width: 100%;
   height: 100vh;
@@ -281,6 +289,9 @@ article {
   align-items: flex-start;
   justify-content: center;
   gap: 0;
+}
+article.no-padding {
+  padding-right: 0;
 }
 article a {
   margin: 0;

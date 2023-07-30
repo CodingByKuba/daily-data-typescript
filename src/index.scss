@@ -60,6 +60,10 @@ button {
   @include infoBoxWarning();
 }
 
+.flex-display {
+  @include flexDisplay();
+}
+
 .center-flex {
   @include centerFlex();
 }

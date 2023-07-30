@@ -172,6 +172,9 @@
   margin: 0.3rem;
   background-color: $recordBackground;
   position: relative;
+  &.no-padding {
+    padding-right: 0;
+  }
   @include flexDisplay($align: flex-start);
   a {
     margin: 0;

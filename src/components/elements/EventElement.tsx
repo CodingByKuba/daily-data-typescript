@@ -39,7 +39,7 @@ const EventElement = (props: EventType) => {
 
   return (
     <article>
-      <NavLink to={props.id}>{props.title}</NavLink>
+      <NavLink to={"/events/" + props.id}>{props.title}</NavLink>
       {deleteError && <InfoBox type="error" message={deleteError} />}
       {props.comment && <pre>{props.comment}</pre>}
       <p>Odbędzie się: {dateParser(props.time)}</p>
