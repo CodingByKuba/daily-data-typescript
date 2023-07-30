@@ -4,12 +4,21 @@ import { ReducerActions } from "../data/enums";
 import config from "../data/config";
 import { AiOutlineMenu, AiOutlineLogout } from "react-icons/ai";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
+import { useEffect } from "react";
 
 const TopNavBar = () => {
   const { userDispatch } = useUserContext();
   const { setAutoLogin } = useLocalStorageContext();
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(
+    () =>
+      navigate("/", {
+        replace: true,
+      }),
+    []
+  );
 
   return (
     <header id="top-nav-bar">
