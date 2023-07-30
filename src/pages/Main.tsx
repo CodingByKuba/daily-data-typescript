@@ -16,6 +16,7 @@ import { useFetchContext } from "../context/FetchContext";
 import FullPageLoader from "../components/FullPageLoader";
 import CheckServer from "../components/CheckServer";
 import WeatherStationsLoader from "../components/WeatherStationsLoader";
+import config from "../data/config";
 
 const Main = () => {
   const { userState } = useUserContext();
@@ -29,7 +30,7 @@ const Main = () => {
     <ServerRefresher>
       <DataLoader>
         <WeatherStationsLoader />
-        <BrowserRouter>
+        <BrowserRouter basename={config.BASE_URL}>
           <TopNavBar />
           <main>
             <Routes>

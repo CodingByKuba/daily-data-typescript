@@ -1,6 +1,7 @@
 import { Config } from "./types";
 
 const config: Config = {
+  BASE_URL: "/daily-data-typescript",
   AX_BASE_URL: "https://daily-data-server.onrender.com",
   AX_CHECK_ALIVE: "/check-alive",
   AX_ROUTE_USERS: "/users",
@@ -25,12 +26,12 @@ const config: Config = {
   },
   NAVIGATION_LINKS: [
     { url: "/", name: "Główna" },
-    { url: "notes", name: "Notatki" },
-    { url: "contacts", name: "Kontakty" },
-    { url: "events", name: "Wydarzenia" },
-    { url: "debt", name: "Zadłużenia" },
-    { url: "add", name: "Dodaj" },
-    { url: "settings", name: "Ustawienia" },
+    { url: "/notes", name: "Notatki" },
+    { url: "/contacts", name: "Kontakty" },
+    { url: "/events", name: "Wydarzenia" },
+    { url: "/debt", name: "Zadłużenia" },
+    { url: "/add", name: "Dodaj" },
+    { url: "/settings", name: "Ustawienia" },
   ],
   MEMORY_SLOTS: {
     login: "DD-App-memory-login",

@@ -1,4 +1,5 @@
 export type Config = {
+  BASE_URL: "/daily-data-typescript";
   AX_BASE_URL: string;
   AX_CHECK_ALIVE: "/check-alive";
   AX_ROUTE_USERS: "/users";

@@ -20,16 +20,16 @@ const Add = () => {
 
   return (
     <div className="add">
-      <NavLink to="/add/note">
+      <NavLink to={"/add/note"}>
         <BsFillFileEarmarkFontFill size={30} />
       </NavLink>
-      <NavLink to="/add/contact">
+      <NavLink to={"/add/contact"}>
         <BsFillFileEarmarkPersonFill size={30} />
       </NavLink>
-      <NavLink to="/add/event">
+      <NavLink to={"/add/event"}>
         <BsFillCalendar2PlusFill size={30} />
       </NavLink>
-      <NavLink to="/add/debt">
+      <NavLink to={"/add/debt"}>
         <BsFillCreditCard2FrontFill size={30} />
       </NavLink>
     </div>
