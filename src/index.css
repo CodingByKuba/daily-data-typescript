@@ -303,6 +303,10 @@ article span {
 article p {
   margin: 0;
 }
+article p a {
+  font-size: 0.8rem;
+  font-weight: bolder;
+}
 article .delete {
   position: absolute;
   top: 0.5rem;

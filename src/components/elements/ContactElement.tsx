@@ -8,6 +8,12 @@ import { useState } from "react";
 import InfoBox from "../InfoBox";
 import { ReducerActions } from "../../data/enums";
 import DeleteButton from "../DeleteButton";
+import {
+  AiOutlinePhone,
+  AiOutlineMail,
+  AiOutlineInstagram,
+  AiOutlineFacebook,
+} from "react-icons/ai";
 
 const ContactElement = (props: ContactType) => {
   const { fetchCallback } = useFetchContext();
@@ -42,10 +48,32 @@ const ContactElement = (props: ContactType) => {
       <NavLink to={props.id}>{props.name}</NavLink>
       {deleteError && <InfoBox type="error" message={deleteError} />}
       {props.comment && <pre>{props.comment}</pre>}
-      {props.phone && <p>Telefon: {props.phone}</p>}
-      {props.email && <p>E-Mail: {props.email}</p>}
-      {props.facebookLink && <p>Facebook: {props.facebookLink}</p>}
-      {props.instagramLink && <p>Instagram: {props.instagramLink}</p>}
+      {props.phone && (
+        <p>
+          <AiOutlinePhone /> <a href={`tel: ${props.phone}`}>{props.phone}</a>
+        </p>
+      )}
+      {props.email && (
+        <p>
+          <AiOutlineMail /> <a href={`mailto: ${props.email}`}>{props.email}</a>
+        </p>
+      )}
+      {props.facebookLink && (
+        <p>
+          <AiOutlineFacebook />{" "}
+          <a href={props.facebookLink} target="_blank">
+            {props.facebookLink}
+          </a>
+        </p>
+      )}
+      {props.instagramLink && (
+        <p>
+          <AiOutlineInstagram />{" "}
+          <a href={props.instagramLink} target="_blank">
+            {props.instagramLink}
+          </a>
+        </p>
+      )}
       <span>Utworzono: {dateParser(props.createdAt)}</span>
       {props.updatedAt && <span>Edytowano: {dateParser(props.updatedAt)}</span>}
       <DeleteButton handleClick={handleDelete} />
