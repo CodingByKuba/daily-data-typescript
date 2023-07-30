@@ -19,6 +19,8 @@ const userReducer = (
         notes: action.payload.notes || state.notes,
         events: action.payload.events || state.events,
         weatherCity: action.payload.weatherCity || state.weatherCity,
+        weatherStations:
+          action.payload.weatherStations || state.weatherStations,
       };
     case ReducerActions.ON_LOGOUT:
       return { ...userInitialState, serverAlive: true };

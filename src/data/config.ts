@@ -38,6 +38,7 @@ const config: Config = {
     passwordRemember: "DD-App-memory-password-remember",
     autoLogin: "DD-App-memory-auto-login",
   },
+  WEATHER_LINK: "https://danepubliczne.imgw.pl/api/data/synop",
 };
 
 export default config;

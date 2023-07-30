@@ -92,6 +92,10 @@ aside {
   @include fullPageLoader();
 }
 
+.weather-box {
+  @include weather();
+}
+
 .add {
   @include add();
 }

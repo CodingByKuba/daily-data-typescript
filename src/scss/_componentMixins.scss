@@ -244,3 +244,13 @@
     border-radius: 50%;
   }
 }
+
+@mixin weather() {
+  @include flexDisplay($justify: space-around, $direction: row);
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+  div {
+    @include flexDisplay($gap: 0.5rem);
+  }
+}

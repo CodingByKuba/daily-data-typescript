@@ -10,4 +10,5 @@ export const userInitialState: UserInitialStateType = {
   notes: [],
   events: [],
   weatherCity: null,
+  weatherStations: [],
 };

@@ -11,6 +11,7 @@ export type Config = {
   LOCATION_NAMES: any;
   NAVIGATION_LINKS: NavigationLinkType[];
   MEMORY_SLOTS: MemorySlotsType;
+  WEATHER_LINK: string;
 };
 
 type MemorySlotsType = {
@@ -65,6 +66,7 @@ export type UserInitialStateType = {
   notes: any[];
   events: any[];
   weatherCity: null | number;
+  weatherStations: any[];
 };
 
 export type NavigationLinkType = {
