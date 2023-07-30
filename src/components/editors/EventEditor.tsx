@@ -52,6 +52,13 @@ const EventEditor = (props: Pick<EventType, "id">) => {
         setFetchSuccess(
           "Wydarzenie zostało " + (props.id !== "none" ? "edytowane" : "dodane")
         );
+        if (!eventFinded && props.id === "none") {
+          setEventTitle("");
+          setEventContent("");
+          setEventTime(new Date());
+          setDate(inputDateParser(new Date()));
+          setTime(inputTimeParser(new Date()));
+        }
       },
       errorCallback: (error: any) => setFetchError(error.message),
     });

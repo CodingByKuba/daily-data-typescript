@@ -55,6 +55,14 @@ const ContactEditor = (props: Pick<ContactType, "id">) => {
         setFetchSuccess(
           "Kontakt został " + (props.id !== "none" ? "edytowany" : "dodany")
         );
+        if (!contactFinded && props.id === "none") {
+          setContactName("");
+          setContactPhone("");
+          setContactEmail("");
+          setContactComment("");
+          setContactInstagram("");
+          setContactFacebook("");
+        }
       },
       errorCallback: (error: any) => setFetchError(error.message),
     });

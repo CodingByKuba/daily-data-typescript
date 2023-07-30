@@ -62,6 +62,12 @@ const DebtEditor = (props: PropsType) => {
         setFetchSuccess(
           "Zadłużenie zostało " + (props.id !== "none" ? "edytowane" : "dodane")
         );
+        if (!debtFinded && !userFinded && props.id === "none") {
+          setDebtMy(false);
+          setDebtCount("");
+          setDebtComment("");
+          setDebtTime(new Date());
+        }
       },
       errorCallback: (error: any) => setFetchError(error.message),
     });

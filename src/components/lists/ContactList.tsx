@@ -1,17 +1,21 @@
 import { useUserContext } from "../../context/UserContext";
 import { ContactType } from "../../data/types";
+import { contactsSorter } from "../../utils/dataSorters";
 import InfoBox from "../InfoBox";
 import Contact from "../elements/ContactElement";
 
 const ContactList = () => {
   const { userState } = useUserContext();
 
-  if (userState.contacts.length === 0)
+  const sortedContacts: ContactType[] =
+    userState.contacts.length > 0 ? contactsSorter(userState) : [];
+
+  if (sortedContacts.length === 0)
     return <InfoBox type="info" message="Brak kontaktów" />;
 
   return (
     <>
-      {userState.contacts.map((el: ContactType) => (
+      {sortedContacts.map((el: ContactType) => (
         <Contact
           key={el.id}
           id={el.id}

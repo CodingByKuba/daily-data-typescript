@@ -5,11 +5,9 @@ import axios from "axios";
 import { ReducerActions } from "../data/enums";
 
 const WeatherStationsLoader = () => {
-  let interval: any;
   const { userState, userDispatch } = useUserContext();
 
   const handleLoadWeatherStations = useCallback(() => {
-    console.log("start");
     axios
       .get(config.WEATHER_LINK)
       .then((response: any) => {
@@ -24,9 +22,6 @@ const WeatherStationsLoader = () => {
 
   useEffect(() => {
     handleLoadWeatherStations();
-    interval = setInterval(() => handleLoadWeatherStations(), 60000);
-
-    return () => clearInterval(interval);
   }, []);
 
   return <></>;

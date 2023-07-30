@@ -40,6 +40,10 @@ const NoteEditor = (props: Pick<NoteType, "id">) => {
         setFetchSuccess(
           "Notatka została " + (props.id !== "none" ? "edytowana" : "dodana")
         );
+        if (!noteFinded && props.id === "none") {
+          setNoteTitle("");
+          setNoteContent("");
+        }
       },
       errorCallback: (error: any) => setFetchError(error.message),
     });
