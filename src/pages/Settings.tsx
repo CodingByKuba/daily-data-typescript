@@ -130,8 +130,10 @@ const Settings = () => {
               onChange={(e) => setSelectedCity(e.target.value)}
             >
               <option value="null">Wybierz stację pogodową...</option>
-              {userState.weatherStations.map((el: any) => (
-                <option value={el.id_stacji}>{el.stacja}</option>
+              {userState.weatherStations.map((el: any, index: number) => (
+                <option key={index} value={el.id_stacji}>
+                  {el.stacja}
+                </option>
               ))}
             </select>
             <button type="submit">Zapisz</button>

@@ -76,10 +76,10 @@ const ContactEditor = (props: Pick<ContactType, "id">) => {
       if (findContact.id) {
         setContactName(findContact.name);
         setContactPhone(findContact.phone ? findContact.phone.toString() : "");
-        setContactEmail(findContact.email);
-        setContactComment(findContact.comment);
-        setContactInstagram(findContact.instagramLink);
-        setContactFacebook(findContact.facebookLink);
+        setContactEmail(findContact.email || "");
+        setContactComment(findContact.comment || "");
+        setContactInstagram(findContact.instagramLink || "");
+        setContactFacebook(findContact.facebookLink || "");
         setContactFinded(true);
       }
     }
