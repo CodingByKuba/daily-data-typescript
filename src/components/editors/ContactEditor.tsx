@@ -102,6 +102,7 @@ const ContactEditor = (props: Pick<ContactType, "id">) => {
           <AiOutlineSolution size={25} />
           <input
             placeholder="Nazwa kontaktu..."
+            type=""
             value={contactName}
             onChange={(e) => setContactName(e.target.value)}
           />
@@ -110,6 +111,8 @@ const ContactEditor = (props: Pick<ContactType, "id">) => {
           <AiOutlinePhone size={25} />
           <input
             placeholder="Telefon..."
+            type="number"
+            step="1"
             value={contactPhone?.toString()}
             onChange={(e) => setContactPhone(e.target.value)}
           />
@@ -118,6 +121,7 @@ const ContactEditor = (props: Pick<ContactType, "id">) => {
           <AiOutlineMail size={25} />
           <input
             placeholder="Email..."
+            type="email"
             value={contactEmail}
             onChange={(e) => setContactEmail(e.target.value)}
           />

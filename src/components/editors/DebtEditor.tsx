@@ -30,6 +30,8 @@ const DebtEditor = (props: PropsType) => {
   const [date, setDate] = useState<string>(inputDateParser(newDate));
   const [time, setTime] = useState<string>(inputTimeParser(newDate));
 
+  const [resetForm, setResetForm] = useState<boolean>(true);
+
   const [fetchSuccess, setFetchSuccess] = useState<string>("");
   const [fetchError, setFetchError] = useState<string>("");
 
@@ -62,7 +64,7 @@ const DebtEditor = (props: PropsType) => {
         setFetchSuccess(
           "Zadłużenie zostało " + (props.id !== "none" ? "edytowane" : "dodane")
         );
-        if (!debtFinded && !userFinded && props.id === "none") {
+        if (!debtFinded && !userFinded && props.id === "none" && resetForm) {
           setDebtMy(false);
           setDebtCount("");
           setDebtComment("");
@@ -123,6 +125,7 @@ const DebtEditor = (props: PropsType) => {
         </select>
         <input
           placeholder="Kwota..."
+          type="number"
           value={debtCount}
           onChange={(e) => setDebtCount(e.target.value)}
         />
@@ -150,6 +153,16 @@ const DebtEditor = (props: PropsType) => {
           value={inputTimeParser(debtTime)}
           onChange={(e) => setTime(e.target.value)}
         />
+        {props.id === "none" && (
+          <div>
+            <input
+              type="checkbox"
+              checked={resetForm}
+              onChange={() => setResetForm((prevResetForm) => !prevResetForm)}
+            />{" "}
+            Resetuj formularz po dodaniu zadłużenia
+          </div>
+        )}
         {isPending ? (
           <Loader />
         ) : (

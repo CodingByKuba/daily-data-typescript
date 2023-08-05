@@ -22,6 +22,8 @@ const EventEditor = (props: Pick<EventType, "id">) => {
   const [date, setDate] = useState<string>(inputDateParser(newDate));
   const [time, setTime] = useState<string>(inputTimeParser(newDate));
 
+  const [resetForm, setResetForm] = useState<boolean>(true);
+
   const [fetchSuccess, setFetchSuccess] = useState<string>("");
   const [fetchError, setFetchError] = useState<string>("");
 
@@ -52,7 +54,7 @@ const EventEditor = (props: Pick<EventType, "id">) => {
         setFetchSuccess(
           "Wydarzenie zostało " + (props.id !== "none" ? "edytowane" : "dodane")
         );
-        if (!eventFinded && props.id === "none") {
+        if (!eventFinded && props.id === "none" && resetForm) {
           setEventTitle("");
           setEventContent("");
           setEventTime(new Date());
@@ -112,6 +114,16 @@ const EventEditor = (props: Pick<EventType, "id">) => {
           value={inputTimeParser(eventTime)}
           onChange={(e) => setTime(e.target.value)}
         />
+        {props.id === "none" && (
+          <div>
+            <input
+              type="checkbox"
+              checked={resetForm}
+              onChange={() => setResetForm((prevResetForm) => !prevResetForm)}
+            />{" "}
+            Resetuj formularz po dodaniu zadłużenia
+          </div>
+        )}
         {isPending ? (
           <Loader />
         ) : (
