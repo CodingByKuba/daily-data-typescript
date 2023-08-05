@@ -121,7 +121,7 @@ const EventEditor = (props: Pick<EventType, "id">) => {
               checked={resetForm}
               onChange={() => setResetForm((prevResetForm) => !prevResetForm)}
             />{" "}
-            Resetuj formularz po dodaniu zadłużenia
+            Resetuj formularz po dodaniu wydarzenia
           </div>
         )}
         {isPending ? (
