@@ -204,6 +204,7 @@
   margin: 0.3rem;
   background-color: $recordBackground;
   position: relative;
+  overflow: hidden;
   &.no-padding {
     padding-right: 0;
   }
@@ -326,5 +327,22 @@
       background-color: $dataCounter;
       padding: 0.3rem;
     }
+  }
+}
+
+@mixin eventDot() {
+  position: absolute;
+  background-color: yellow;
+  width: 1.5rem;
+  height: 1.5rem;
+  right: 1rem;
+  bottom: 1rem;
+  border-radius: 50%;
+  filter: blur(0.2rem);
+  &.orange {
+    background-color: orange;
+  }
+  &.red {
+    background-color: red;
   }
 }

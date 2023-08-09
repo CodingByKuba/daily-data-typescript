@@ -9,11 +9,15 @@ import InfoBox from "../InfoBox";
 import { ReducerActions } from "../../data/enums";
 import DeleteButton from "../DeleteButton";
 import daysParse from "../../utils/daysParser";
+import EventDot from "../EventDot";
+import countDays from "../../utils/countDays";
 
 const EventElement = (props: EventType) => {
   const { fetchCallback } = useFetchContext();
   const { userState, userDispatch } = useUserContext();
   const [deleteError, setDeleteError] = useState<string>("");
+
+  let daysLeft = countDays(props.time);
 
   const handleDelete = () => {
     if (confirm('Czy chcesz usunąć wydarzenie "' + props.title + '"?')) {
@@ -53,6 +57,11 @@ const EventElement = (props: EventType) => {
           )}
           <DeleteButton handleClick={handleDelete} />
         </>
+      )}
+      {daysLeft < 15 && (
+        <EventDot
+          color={daysLeft < 3 ? "red" : daysLeft < 8 ? "orange" : undefined}
+        />
       )}
     </article>
   );

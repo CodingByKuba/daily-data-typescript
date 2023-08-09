@@ -122,3 +122,7 @@ aside {
 #data-counter {
   @include dataCounter();
 }
+
+#event-dot {
+  @include eventDot();
+}
