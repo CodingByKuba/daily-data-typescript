@@ -47,7 +47,11 @@ const EventElement = (props: EventType) => {
       <NavLink to={"/events/" + props.id}>{props.title}</NavLink>
       {deleteError && <InfoBox type="error" message={deleteError} />}
       <p>Odbędzie się: {dateParser(props.time)}</p>
-      <p>({daysParse(props.time)})</p>
+      <p
+        className={daysLeft < 3 ? "red" : daysLeft < 15 ? "orange" : undefined}
+      >
+        ({daysParse(props.time)})
+      </p>
       {props.comment && <pre>{props.comment}</pre>}
       {!props.noDelete && (
         <>
@@ -60,7 +64,7 @@ const EventElement = (props: EventType) => {
       )}
       {daysLeft < 15 && (
         <EventDot
-          color={daysLeft < 3 ? "red" : daysLeft < 8 ? "orange" : undefined}
+          color={daysLeft < 3 ? "red" : daysLeft < 15 ? "orange" : undefined}
         />
       )}
     </article>

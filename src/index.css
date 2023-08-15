@@ -361,6 +361,12 @@ article p a {
   font-size: 0.8rem;
   font-weight: bolder;
 }
+article p.orange {
+  color: orange;
+}
+article p.red {
+  color: red;
+}
 article .delete {
   position: absolute;
   top: 0.5rem;
