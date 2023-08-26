@@ -339,16 +339,34 @@
 @mixin eventDot() {
   position: absolute;
   background-color: yellow;
-  width: 1.5rem;
-  height: 1.5rem;
-  right: 1rem;
-  bottom: 1rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.5rem;
   border-radius: 50%;
-  filter: blur(0.2rem);
   &.orange {
     background-color: orange;
   }
   &.red {
     background-color: red;
+  }
+}
+
+@mixin separator() {
+  height: $topNavBarHeight;
+  width: 100%;
+}
+
+@mixin searchBar() {
+  @include flexDisplay($direction: row, $gap: 0.5rem);
+  position: fixed;
+  background-color: $navDrawerBackground;
+  backdrop-filter: blur(1rem);
+  top: $topNavBarHeight;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  span {
+    font-size: 1.6rem;
   }
 }

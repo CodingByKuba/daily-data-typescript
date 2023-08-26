@@ -126,3 +126,11 @@ aside {
 #event-dot {
   @include eventDot();
 }
+
+#separator {
+  @include separator();
+}
+
+#search-bar {
+  @include searchBar();
+}
