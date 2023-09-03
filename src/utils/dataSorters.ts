@@ -18,4 +18,4 @@ export const notesSorter = (state: UserInitialStateType): NoteType[] =>
   state.notes.sort((a: any, b: any) => (a.updatedAt < b.updatedAt ? 1 : -1));
 
 export const productsSorter = (state: UserInitialStateType): ProductType[] =>
-  state.products.sort((a: any, b: any) => (a.updatedAt < b.updatedAt ? 1 : -1));
+  state.products.sort((a: any, b: any) => (a.title < b.title ? 1 : -1));

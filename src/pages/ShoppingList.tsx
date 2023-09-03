@@ -1,5 +1,7 @@
+import ShoppingListItemsList from "../components/lists/ShoppingListItemsList";
+
 const ShoppingList = () => {
-  return <div>Lista zakupów</div>;
+  return <ShoppingListItemsList />;
 };
 
 export default ShoppingList;
