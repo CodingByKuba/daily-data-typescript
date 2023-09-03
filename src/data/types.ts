@@ -9,8 +9,11 @@ export type Config = {
   AX_ROUTE_LOGIN: "/login";
   AX_ROUTE_LOGOUT: "/logout";
   AX_ROUTE_NOTES: "/notes";
+  AX_ROUTE_PRODUCTS: "/products";
+  AX_ROUTE_SHOPPINGLIST: "/shopping-list";
   LOCATION_NAMES: any;
   NAVIGATION_LINKS: NavigationLinkType[];
+  SECONDARY_NAVIGATION_LINKS: NavigationLinkType[];
   MEMORY_SLOTS: MemorySlotsType;
   WEATHER_LINK: string;
 };
@@ -118,4 +121,18 @@ export type DebtType = {
   updatedAt?: Date | undefined;
   username?: string;
   contactId?: string;
+};
+
+export type ProductType = {
+  id: string;
+  title: string;
+  unit: string;
+  createdAt: Date;
+  updatedAt?: Date | undefined;
+};
+
+export type ShoppingListItemType = {
+  id: string;
+  productId: string;
+  count: number;
 };

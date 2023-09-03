@@ -29,6 +29,15 @@ const NavigationDrawer = () => {
           {el.name}
         </NavLink>
       ))}
+      <hr />
+      Dodatkowe:
+      {config.SECONDARY_NAVIGATION_LINKS.map(
+        (el: NavigationLinkType, index: number) => (
+          <NavLink key={index} to={el.url} onClick={() => closeAction()}>
+            {el.name}
+          </NavLink>
+        )
+      )}
     </nav>
   );
 };

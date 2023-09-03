@@ -11,6 +11,8 @@ const config: Config = {
   AX_ROUTE_LOGIN: "/login",
   AX_ROUTE_LOGOUT: "/logout",
   AX_ROUTE_NOTES: "/notes",
+  AX_ROUTE_PRODUCTS: "/products",
+  AX_ROUTE_SHOPPINGLIST: "/shopping-list",
   LOCATION_NAMES: {
     "/": "Strona główna",
     "/notes": "Notatki",
@@ -23,6 +25,8 @@ const config: Config = {
     "/add/contact": "Dodaj kontakt",
     "/add/event": "Dodaj wydarzenie",
     "/add/debt": "Dodaj zadłużenie",
+    "/products": "Produkty",
+    "/shopping-list": "Lista zakupów",
   },
   NAVIGATION_LINKS: [
     { url: "/", name: "Główna" },
@@ -32,6 +36,10 @@ const config: Config = {
     { url: "/debt", name: "Zadłużenia" },
     { url: "/add", name: "Dodaj" },
     { url: "/settings", name: "Ustawienia" },
+  ],
+  SECONDARY_NAVIGATION_LINKS: [
+    { url: "/products", name: "Produkty" },
+    { url: "/shopping-list", name: "Lista zakupów" },
   ],
   MEMORY_SLOTS: {
     login: "DD-App-memory-login",

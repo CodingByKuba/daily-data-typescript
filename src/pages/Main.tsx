@@ -18,6 +18,8 @@ import CheckServer from "../components/CheckServer";
 import WeatherStationsLoader from "../components/WeatherStationsLoader";
 import config from "../data/config";
 import FooterMenu from "../components/FooterMenu";
+import Products from "./Products";
+import ShoppingList from "./ShoppingList";
 
 const Main = () => {
   const { userState } = useUserContext();
@@ -48,6 +50,8 @@ const Main = () => {
               <Route path="/add" element={<Add />} />
               <Route path="/add/:type" element={<Add />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/shopping-list" element={<ShoppingList />} />
               <Route path="*" element={<div>Error</div>} />
             </Routes>
           </main>
