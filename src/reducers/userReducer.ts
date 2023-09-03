@@ -21,6 +21,8 @@ const userReducer = (
         weatherCity: action.payload.weatherCity || state.weatherCity,
         weatherStations:
           action.payload.weatherStations || state.weatherStations,
+        products: action.payload.products || state.products,
+        shoppingList: action.payload.shoppingList || state.shoppingList,
       };
     case ReducerActions.ON_LOGOUT:
       return { ...userInitialState, serverAlive: true };

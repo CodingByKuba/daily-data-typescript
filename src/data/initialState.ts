@@ -11,4 +11,6 @@ export const userInitialState: UserInitialStateType = {
   events: [],
   weatherCity: null,
   weatherStations: [],
+  products: [],
+  shoppingList: [],
 };

@@ -68,6 +68,8 @@ export type UserInitialStateType = {
   events: any[];
   weatherCity: null | number;
   weatherStations: any[];
+  products: any[];
+  shoppingList: any[];
 };
 
 export type NavigationLinkType = {

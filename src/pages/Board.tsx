@@ -103,6 +103,27 @@ const Board = () => {
           </div>
         </article>
       )}
+      {userState.shoppingList.length > 0 ? (
+        <article>
+          <p>Zrób zakupy:</p>
+          <pre>
+            {userState.shoppingList.map((el: any) => {
+              let currentProduct = userState.products.find(
+                (element: any) => element.id === el.productId
+              );
+
+              return (
+                currentProduct.title +
+                " - " +
+                el.count +
+                " " +
+                currentProduct.unit +
+                ", "
+              );
+            })}
+          </pre>
+        </article>
+      ) : null}
     </div>
   );
 };

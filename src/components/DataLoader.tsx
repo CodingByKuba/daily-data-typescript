@@ -37,6 +37,8 @@ const DataLoader = ({ children }: PropsType) => {
               notes: response.data.notes,
               events: response.data.events,
               weatherCity: response.data.weatherCity,
+              products: response.data.products,
+              shoppingList: response.data.shoppingList,
             },
           });
           return;
