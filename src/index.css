@@ -545,4 +545,8 @@ aside {
 }
 #search-bar span {
   font-size: 1.6rem;
+}
+
+.input-short {
+  width: 30%;
 }/*# sourceMappingURL=index.css.map */

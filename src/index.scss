@@ -134,3 +134,7 @@ aside {
 #search-bar {
   @include searchBar();
 }
+
+.input-short {
+  @include inputShort();
+}
