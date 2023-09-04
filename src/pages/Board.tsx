@@ -7,10 +7,15 @@ import { WiHumidity, WiDirectionDown } from "react-icons/wi";
 import { useState, useEffect } from "react";
 import BoardCalendar from "../components/BoardCalendar";
 import BoardDataCounter from "../components/BoardDataCounter";
+import { NavLink } from "react-router-dom";
+import config from "../data/config";
+import { useFetchContext } from "../context/FetchContext";
+import { ReducerActions } from "../data/enums";
 
 const Board = () => {
   let interval: any;
-  const { userState } = useUserContext();
+  const { userState, userDispatch } = useUserContext();
+  const { fetchCallback } = useFetchContext();
   const [currentDate, setCurrentDate] = useState<Date>(new Date());
 
   useEffect(() => {
@@ -20,6 +25,28 @@ const Board = () => {
 
     return () => clearInterval(interval);
   });
+
+  const handleClearShoppingList = () => {
+    if (confirm("Czy chcesz wyczyścić listę zakupów?")) {
+      fetchCallback({
+        url: config.AX_ROUTE_SHOPPINGLIST,
+        method: "DELETE",
+        payload: {
+          username: userState.username,
+          token: userState.token,
+          clear: true,
+        },
+        successCallback: (response: any) => {
+          if (response.data.error) return;
+          userDispatch({
+            type: ReducerActions.SET_DATA,
+            payload: { shoppingList: response.data.shoppingList },
+          });
+        },
+        errorCallback: (error: any) => error,
+      });
+    }
+  };
 
   const firstEvent: EventType | undefined =
     userState.events.length > 0 ? eventsSorter(userState)[0] : undefined;
@@ -62,7 +89,7 @@ const Board = () => {
       )}
       {userState.weatherStations.length > 0 && currentStation && (
         <article className="no-padding">
-          <p>Pogoda:</p>
+          <NavLink to="/settings">Pogoda</NavLink>
           <div className="weather-box">
             {currentStation.stacja && (
               <div>
@@ -99,7 +126,7 @@ const Board = () => {
       )}
       {userState.shoppingList.length > 0 ? (
         <article>
-          <p>Zrób zakupy:</p>
+          <NavLink to="/shopping-list">Zakupy</NavLink>
           <pre>
             {userState.shoppingList.map((el: any) => {
               let currentProduct = userState.products.find(
@@ -108,41 +135,44 @@ const Board = () => {
 
               return (
                 currentProduct.title +
-                " - " +
-                el.count +
-                " " +
-                currentProduct.unit +
-                ", "
+                (el.count !== 1
+                  ? " (" + el.count + currentProduct.unit + "), "
+                  : ", ")
               );
             })}
           </pre>
-          <button
-            onClick={() =>
-              navigator.clipboard.writeText(
-                userState.shoppingList.map((el: any) => {
-                  let currentProduct = userState.products.find(
-                    (element: any) => element.id === el.productId
-                  );
+          <div>
+            <NavLink to="/products">
+              <button>&nbsp;+&nbsp;</button>
+            </NavLink>
+            <button
+              onClick={() =>
+                navigator.clipboard.writeText(
+                  userState.shoppingList.map((el: any) => {
+                    let currentProduct = userState.products.find(
+                      (element: any) => element.id === el.productId
+                    );
 
-                  return (
-                    currentProduct.title +
-                    " - " +
-                    el.count +
-                    " " +
-                    currentProduct.unit +
-                    ", "
-                  );
-                })
-              )
-            }
-          >
-            Kopiuj
-          </button>
+                    return (
+                      " " +
+                      currentProduct.title +
+                      (el.count !== 1
+                        ? " (" + el.count + currentProduct.unit + ")"
+                        : "")
+                    );
+                  })
+                )
+              }
+            >
+              Kopiuj
+            </button>
+            <button onClick={handleClearShoppingList}>Czyść</button>
+          </div>
         </article>
       ) : null}
       {debtCount !== 0 && (
         <article>
-          <p>Bilans zadłużeń: </p>
+          <NavLink to="/debt">Bilans zadłużeń</NavLink>
           <pre className={debtCount < 0 ? "red" : "green"}>{debtCount} zł</pre>
         </article>
       )}
