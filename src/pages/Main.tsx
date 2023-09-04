@@ -51,6 +51,7 @@ const Main = () => {
               <Route path="/add/:type" element={<Add />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/products" element={<Products />} />
+              <Route path="/products/:id" element={<Products />} />
               <Route path="/shopping-list" element={<ShoppingList />} />
               <Route path="*" element={<div>Error</div>} />
             </Routes>

@@ -60,12 +60,6 @@ const Board = () => {
           noDelete
         />
       )}
-      {debtCount !== 0 && (
-        <article>
-          <p>Bilans zadłużeń: </p>
-          <pre className={debtCount < 0 ? "red" : "green"}>{debtCount} zł</pre>
-        </article>
-      )}
       {userState.weatherStations.length > 0 && currentStation && (
         <article className="no-padding">
           <p>Pogoda:</p>
@@ -122,8 +116,36 @@ const Board = () => {
               );
             })}
           </pre>
+          <button
+            onClick={() =>
+              navigator.clipboard.writeText(
+                userState.shoppingList.map((el: any) => {
+                  let currentProduct = userState.products.find(
+                    (element: any) => element.id === el.productId
+                  );
+
+                  return (
+                    currentProduct.title +
+                    " - " +
+                    el.count +
+                    " " +
+                    currentProduct.unit +
+                    ", "
+                  );
+                })
+              )
+            }
+          >
+            Kopiuj
+          </button>
         </article>
       ) : null}
+      {debtCount !== 0 && (
+        <article>
+          <p>Bilans zadłużeń: </p>
+          <pre className={debtCount < 0 ? "red" : "green"}>{debtCount} zł</pre>
+        </article>
+      )}
     </div>
   );
 };

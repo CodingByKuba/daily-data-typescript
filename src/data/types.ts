@@ -16,6 +16,7 @@ export type Config = {
   SECONDARY_NAVIGATION_LINKS: NavigationLinkType[];
   MEMORY_SLOTS: MemorySlotsType;
   WEATHER_LINK: string;
+  PRODUCT_UNITS: ProductUnitType[];
 };
 
 type MemorySlotsType = {
@@ -136,3 +137,5 @@ export type ShoppingListItemType = {
   productId: string;
   count: number;
 };
+
+export type ProductUnitType = "szt" | "kg" | "g" | "l";

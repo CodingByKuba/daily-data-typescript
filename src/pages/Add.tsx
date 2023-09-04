@@ -5,10 +5,12 @@ import {
   BsFillFileEarmarkPersonFill,
   BsFillCalendar2PlusFill,
   BsFillCreditCard2FrontFill,
+  BsCartPlusFill,
 } from "react-icons/bs";
 import EventEditor from "../components/editors/EventEditor";
 import ContactEditor from "../components/editors/ContactEditor";
 import DebtEditor from "../components/editors/DebtEditor";
+import ProductEditor from "../components/editors/ProductEditor";
 
 const Add = () => {
   const params = useParams();
@@ -17,6 +19,7 @@ const Add = () => {
   if (params.type === "contact") return <ContactEditor id="none" />;
   if (params.type === "event") return <EventEditor id="none" />;
   if (params.type === "debt") return <DebtEditor id="none" user="none" />;
+  if (params.type === "product") return <ProductEditor id="none" />;
 
   return (
     <div className="add">
@@ -31,6 +34,9 @@ const Add = () => {
       </NavLink>
       <NavLink to={"/add/debt"}>
         <BsFillCreditCard2FrontFill size={30} />
+      </NavLink>
+      <NavLink to={"/add/product"}>
+        <BsCartPlusFill size={30} />
       </NavLink>
     </div>
   );

@@ -48,6 +48,7 @@ const config: Config = {
     autoLogin: "DD-App-memory-auto-login",
   },
   WEATHER_LINK: "https://danepubliczne.imgw.pl/api/data/synop",
+  PRODUCT_UNITS: ["szt", "kg", "g", "l"],
 };
 
 export default config;

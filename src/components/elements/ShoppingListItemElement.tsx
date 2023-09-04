@@ -42,7 +42,7 @@ const ShoppingListItemElement = (props: ShoppingListItemType) => {
 
   return (
     <article>
-      <NavLink to={props.id}>{currentProduct.title}</NavLink>
+      <NavLink to="/shopping-list">{currentProduct.title}</NavLink>
       {deleteError && <InfoBox type="error" message={deleteError} />}
       <pre>
         {props.count} {currentProduct.unit.toUpperCase()}
