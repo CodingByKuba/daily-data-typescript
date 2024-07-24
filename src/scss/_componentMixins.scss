@@ -239,6 +239,10 @@
     &.red {
       color: red;
     }
+    &.gray {
+      color: gray;
+      text-decoration: line-through;
+    }
   }
   .delete {
     position: absolute;
@@ -349,6 +353,9 @@
   }
   &.red {
     background-color: red;
+  }
+  &.gray {
+    background-color: gray;
   }
 }
 

@@ -18,6 +18,7 @@ const EventElement = (props: EventType) => {
   const [deleteError, setDeleteError] = useState<string>("");
 
   let daysLeft = countDays(props.time);
+  let daysTitle = daysParse(props.time);
 
   const handleDelete = () => {
     if (confirm('Czy chcesz usunąć wydarzenie "' + props.title + '"?')) {
@@ -46,11 +47,19 @@ const EventElement = (props: EventType) => {
     <article>
       <NavLink to={"/events/" + props.id}>{props.title}</NavLink>
       {deleteError && <InfoBox type="error" message={deleteError} />}
-      <p>Odbędzie się: {dateParser(props.time)}</p>
+      <p>{dateParser(props.time)}</p>
       <p
-        className={daysLeft < 3 ? "red" : daysLeft < 15 ? "orange" : undefined}
+        className={
+          daysTitle === "termin minął"
+            ? "gray"
+            : daysLeft < 3
+            ? "red"
+            : daysLeft < 15
+            ? "orange"
+            : undefined
+        }
       >
-        ({daysParse(props.time)})
+        ({daysTitle})
       </p>
       {props.comment && <pre>{props.comment}</pre>}
       {!props.noDelete && (
@@ -64,7 +73,15 @@ const EventElement = (props: EventType) => {
       )}
       {daysLeft < 15 && (
         <EventDot
-          color={daysLeft < 3 ? "red" : daysLeft < 15 ? "orange" : undefined}
+          color={
+            daysTitle === "termin minął"
+              ? "gray"
+              : daysLeft < 3
+              ? "red"
+              : daysLeft < 15
+              ? "orange"
+              : undefined
+          }
         />
       )}
     </article>

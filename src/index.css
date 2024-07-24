@@ -367,6 +367,10 @@ article p.orange {
 article p.red {
   color: red;
 }
+article p.gray {
+  color: gray;
+  text-decoration: line-through;
+}
 article .delete {
   position: absolute;
   top: 0.5rem;
@@ -521,6 +525,9 @@ aside {
 }
 #event-dot.red {
   background-color: red;
+}
+#event-dot.gray {
+  background-color: gray;
 }
 
 #separator {

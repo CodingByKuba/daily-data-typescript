@@ -1,5 +1,14 @@
 export default {
   WEEK_DAYS_SHORT: ["nd", "pn", "wt", "śr", "czw", "pt", "sob"],
+  WEEK_DAYS_LONG: [
+    "niedziela",
+    "poniedziałek",
+    "wtorek",
+    "środa",
+    "czwartek",
+    "piątek",
+    "sobota",
+  ],
   MONTHS: [
     "styczeń",
     "luty",

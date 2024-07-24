@@ -1,5 +1,5 @@
 type PropsType = {
-  color?: "red" | "orange";
+  color?: "red" | "orange" | "gray";
 };
 
 const EventDot = (props: PropsType) => {
